@@ -24,106 +24,105 @@
             content: "";
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.8);
             z-index: -1;
         }
 
         header {
-            padding: 20px;
-            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 20;
             background: rgba(0, 0, 0, 0.9);
-            border-bottom: 1px solid #333;
-            backdrop-filter: blur(4px);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #ff1e1e33;
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
         }
 
         .logo {
-            font-size: 30px;
             font-weight: 800;
-            letter-spacing: 4px;
+            letter-spacing: 2px;
+            font-size: 18px;
+            text-transform: uppercase;
         }
 
-        .subnote {
-            font-size: 13px;
-            color: #bbbbbb;
-            margin-top: 4px;
-        }
-
-        .btn-discord {
-            display: inline-block;
-            margin-top: 14px;
-            padding: 10px 22px;
-            border-radius: 999px;
-            background: #5865F2;
-            color: #fff;
-            font-size: 14px;
-            text-decoration: none;
-            font-weight: 600;
-            box-shadow: 0 0 14px rgba(88, 101, 242, 0.7);
-            transition: 0.15s;
-        }
-
-        .btn-discord:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 0 20px rgba(88, 101, 242, 0.9);
-        }
-
-        nav {
-            position: sticky;
-            top: 0;
-            background: rgba(5, 5, 5, 0.95);
-            border-bottom: 1px solid #333;
-            z-index: 10;
-            backdrop-filter: blur(6px);
+        .logo span {
+            color: #ff2b2b;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 10px 16px;
-            gap: 16px;
+            gap: 14px;
             flex-wrap: wrap;
+            justify-content: flex-end;
         }
 
         nav a {
             color: #f5f5f5;
             text-decoration: none;
+            font-size: 14px;
             padding: 6px 10px;
             border-radius: 999px;
-            font-size: 14px;
             border: 1px solid transparent;
-            transition: 0.15s;
+            transition: 0.15s ease;
+            white-space: nowrap;
         }
 
         nav a:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.2);
+            border-color: #ff2b2b;
+            background: #ff2b2b22;
         }
 
-        main {
+        .btn-discord {
+            border-color: #5662f6;
+            background: #5662f622;
+        }
+
+        .btn-discord:hover {
+            background: #5662f655;
+        }
+
+        .page-wrapper {
             max-width: 1100px;
-            margin: 30px auto 40px auto;
-            padding: 24px 18px 28px 18px;
-            background: rgba(0, 0, 0, 0.85);
+            margin: 80px auto 40px auto;
+            padding: 24px 16px 40px 16px;
+            background: rgba(0, 0, 0, 0.78);
             border-radius: 18px;
-            box-shadow: 0 0 35px rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
         }
 
         h1 {
             font-size: 26px;
-            margin-bottom: 10px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .subnote {
+            font-size: 13px;
+            color: #bbbbbb;
         }
 
         h2 {
-            font-size: 24px;
+            font-size: 22px;
             margin: 32px 0 12px 0;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            border-left: 3px solid #ff2b2b;
+            padding-left: 10px;
         }
 
         h3 {
-            font-size: 18px;
+            font-size: 17px;
             margin: 18px 0 6px 0;
         }
 
@@ -132,7 +131,7 @@
         }
 
         .rule-list {
-            margin-left: 16px;
+            margin-left: 18px;
             margin-top: 4px;
         }
 
@@ -146,77 +145,39 @@
             margin: 28px 0;
         }
 
-        .badge {
-            display: inline-block;
-            padding: 4px 8px;
-            border-radius: 999px;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            background: #222;
-            color: #f5f5f5;
-            margin-bottom: 8px;
-        }
-
-        .btn-small {
-            display: inline-block;
-            margin-top: 8px;
-            padding: 6px 14px;
-            border-radius: 999px;
-            background: #222;
-            color: #fff;
-            font-size: 13px;
-            text-decoration: none;
-        }
-
         footer {
+            margin-top: 24px;
+            font-size: 13px;
+            color: #aaaaaa;
             border-top: 1px solid #333;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(6px);
-        }
-
-        .footer-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 14px 18px;
+            padding-top: 12px;
             display: flex;
             flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
             gap: 8px;
-            font-size: 13px;
-            color: #b0b0b0;
+            justify-content: space-between;
         }
 
-        .footer-nav {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .footer-nav a {
-            color: #cccccc;
+        footer a {
+            color: #f5f5f5;
             text-decoration: none;
-            font-size: 13px;
         }
 
-        .footer-nav a:hover {
+        footer a:hover {
             text-decoration: underline;
         }
 
-        @media (max-width: 600px) {
-            .logo {
-                font-size: 22px;
+        @media (max-width: 700px) {
+            .nav-inner {
+                flex-direction: column;
+                align-items: flex-start;
             }
+
             nav ul {
-                gap: 8px;
+                justify-content: flex-start;
             }
-            nav a {
-                font-size: 13px;
-            }
-            main {
-                margin: 20px 10px 30px 10px;
-                padding: 18px 14px 22px 14px;
+
+            h1 {
+                font-size: 20px;
             }
         }
     </style>
@@ -224,34 +185,27 @@
 <body>
 
 <header>
-    <div class="logo">PRAG CRIMELIFE</div>
-    <p class="subnote">Regelwerk · Team · Infos</p>
-    <a class="btn-discord" href="https://discord.gg/Kac3JbPKCx" target="_blank" rel="noopener">
-        Zum Discord
-    </a>
+    <div class="nav-inner">
+        <div class="logo"><span>PRAG</span> CRIMELIFE</div>
+        <nav>
+            <ul>
+                <li><a href="#discord-regeln">Discord</a></li>
+                <li><a href="#ingame-regeln">Ingame</a></li>
+                <li><a href="#support-regeln">Support</a></li>
+                <li><a href="#gangwar-regeln">Gangwar</a></li>
+                <li><a href="team.html">Team &amp; Bewerbung</a></li>
+                <li><a href="impressum.html">Impressum</a></li>
+                <li><a class="btn-discord" href="https://discord.gg/Kac3JbPKCx" target="_blank" rel="noopener">Zum Discord</a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
 
-<nav>
-    <ul>
-        <li><a href="#regelwerk">Regelwerk</a></li>
-        <li><a href="#discord-regeln">Discord</a></li>
-        <li><a href="#ingame-regeln">Ingame</a></li>
-        <li><a href="#team">Team &amp; Bewerbungen</a></li>
-        <li><a href="#impressum">Impressum</a></li>
-    </ul>
-</nav>
-
-<main>
-
-    <!-- GESAMTES REGELWERK -->
-    <section id="regelwerk">
-        <h1>Regelwerk – Prag Crimelife</h1>
-        <p style="font-size:14px;color:#bbbbbb;">
-            Diese Seite fasst alle wichtigen Regeln, Infos zum Team und Kontaktmöglichkeiten von Prag Crimelife zusammen.
-        </p>
-    </section>
-
-    <hr>
+<div class="page-wrapper">
+    <header>
+        <h1>Prag Crimelife – Regelwerk</h1>
+        <p class="subnote">Gültig für Discord und Ingame. Mit dem Betreten des Servers akzeptierst du diese Regeln.</p>
+    </header>
 
     <!-- DISCORD -->
     <section id="discord-regeln">
@@ -339,8 +293,13 @@
         <ul class="rule-list">
             <li>Wer die Hände oben hat, darf nicht gecallt oder beschossen werden.</li>
         </ul>
+    </section>
 
-        <h3>Support-Regelwerk</h3>
+    <hr>
+
+    <!-- SUPPORT -->
+    <section id="support-regeln">
+        <h2>Support-Regelwerk</h2>
 
         <h3>3.0 Beweise</h3>
         <ul class="rule-list">
@@ -371,45 +330,14 @@
             <li>Teammitglieder werden nicht privat für Support angeschrieben.</li>
             <li>Support läuft ausschließlich über den offiziellen Discord und das Ticketsystem.</li>
         </ul>
+    </section>
 
-        <hr>
+    <hr>
 
-        <h2>Trolling / Baiting & Blacklist</h2>
+    <!-- GANGWAR -->
+    <section id="gangwar-regeln">
+        <h2>Gangwar-Regeln</h2>
 
-        <h3>Trolling / Baiting</h3>
-        <ul class="rule-list">
-            <li>Bewusstes und unbegründetes Provozieren von Spielern oder Fraktionen ist verboten.</li>
-            <li>Unangebrachte Steam-/FiveM-/Discord-Namen können geändert oder gesperrt werden.</li>
-            <li>Sich als Fraktionsmitglied auszugeben, obwohl man es nicht ist, ist strikt untersagt.</li>
-        </ul>
-
-        <h3>Blacklisted Wörter</h3>
-        <ul class="rule-list">
-            <li>Schwer beleidigende, erniedrigende oder herabwürdigende Ausdrücke sind verboten.</li>
-            <li>Sexistische, rassistische, homophobe oder allgemein diskriminierende Formulierungen sind untersagt.</li>
-            <li>Angriffe auf andere wegen Geschlecht, Herkunft, Sexualität, Religion oder persönlicher Merkmale sind nicht erlaubt.</li>
-            <li>Beleidigungen in anderen Sprachen oder TOS-Umgehungen fallen ebenfalls darunter.</li>
-        </ul>
-
-        <hr>
-
-        <h2>Fraktionen & Gangwar</h2>
-
-        <h3>Fraktionsregelwerk (Kurzfassung)</h3>
-        <ul class="rule-list">
-            <li>Maximal 25 Mitglieder pro Fraktion, mindestens 10 aktive Spieler.</li>
-            <li>Jede Fraktion benötigt mindestens zwei klare Erkennungsmerkmale.</li>
-            <li>Regelverstöße von zwei oder mehr Fraktionsmitgliedern können Strafen für die gesamte Fraktion nach sich ziehen.</li>
-            <li>Maximal 3 Verwarnungen, diese verfallen nach 7 Tagen.</li>
-            <li>Maximal 3 Leader, nur ein Leaderwechsel innerhalb eines Zeitraums erlaubt.</li>
-            <li>Report-Clips dürfen maximal 24 Stunden alt sein.</li>
-            <li>Support-Flucht ins Lager ist verboten.</li>
-            <li>Maximal 3 Gangwar-Punkte gleichzeitig.</li>
-            <li>Den Kampf absichtlich zu verlassen ist verboten.</li>
-            <li>Server-Regeln gelten vollumfänglich auch im Gangwar.</li>
-        </ul>
-
-        <h3>Gangwar-Regeln</h3>
         <ul class="rule-list">
             <li>Zone betreten bedeutet, dass man in der Zone bleibt (kein ständiges Rein/Raus).</li>
             <li>Dächer- und Spawncamping sind verboten.</li>
@@ -424,91 +352,15 @@
         </ul>
     </section>
 
-    <hr>
-
-    <!-- TEAM & BEWERBUNGEN -->
-    <section id="team">
-        <h2>Team &amp; Bewerbungen</h2>
-
-        <p>Prag Crimelife befindet sich im Aufbau. Wir suchen aktive und zuverlässige Leute, die Lust haben, den Server mitzugestalten und Verantwortung zu übernehmen.</p>
-
-        <p class="badge">Teamleitung</p>
-        <p>Unterstützung der Projektleitung Prag Crimelife bei strukturellen Entscheidungen, Organisation des Teams und Qualitätssicherung.</p>
-
-        <p class="badge">Administratoren</p>
-        <ul class="rule-list">
-            <li>Überwachung des Servers und der Community</li>
-            <li>Bearbeitung von Reports und Tickets</li>
-            <li>Unterstützung der Supporter bei schwierigen Fällen</li>
-        </ul>
-
-        <p class="badge">Supporter</p>
-        <ul class="rule-list">
-            <li>Ansprechpartner für Spieler bei Fragen und Problemen</li>
-            <li>Aufnahme und Bearbeitung von Regelverstößen</li>
-            <li>Vermittlung bei Konflikten zwischen Spielern oder Fraktionen</li>
-        </ul>
-
-        <p class="badge">Developer / Scripter</p>
-        <ul class="rule-list">
-            <li>Mitarbeit am Crimelife-Konzept (Scripts, Optimierungen, Bugfixes)</li>
-            <li>Fokus auf Performance, faire Fights und sinnvolle Features</li>
-        </ul>
-
-        <h3 style="margin-top:24px;">Wie bewirbst du dich?</h3>
-        <p>Die Bewerbung läuft über unseren Discord. Halte dich an die dort angegebenen Vorgaben im Bewerbungs- oder Ticketbereich.</p>
-
-        <p>Schreib uns u. a.:</p>
-        <ul class="rule-list">
-            <li>Dein Alter</li>
-            <li>Deine Wunschrolle (z. B. Supporter, Admin, Developer)</li>
-            <li>Deine bisherigen Erfahrungen mit FiveM / Teams</li>
-            <li>Warum du zu Prag Crimelife passt und was du beitragen möchtest</li>
-        </ul>
-
-        <a class="btn-discord" href="https://discord.gg/Kac3JbPKCx" target="_blank" rel="noopener">
-            Zum Discord
-        </a>
-    </section>
-
-    <hr>
-
-    <!-- IMPRESSUM -->
-    <section id="impressum">
-        <h2>Impressum</h2>
-
-        <p><strong>Projektleitung Prag Crimelife</strong></p>
-        <p>
-            Verantwortlich für den Inhalt dieser Seite:<br>
-            Projektleitung Prag Crimelife<br>
-            E-Mail:
-            <a href="mailto:pragcrimelife@gmail.com" style="color:#6cf;">
-                pragcrimelife@gmail.com
-            </a>
-        </p>
-
-        <p style="font-size:13px;color:#bbbbbb;margin-top:12px;">
-            Hinweis: Diese Angaben dienen als grundlegende Kontaktmöglichkeit für das Projekt Prag Crimelife.
-            Dies ist keine individuelle Rechtsberatung und ersetzt kein rechtliches Impressum nach nationalem Recht.
-        </p>
-    </section>
-
-</main>
-
-<footer>
-    <div class="footer-inner">
-        <span>© 2025 Prag Crimelife</span>
-        <div class="footer-nav">
-            <a href="#regelwerk">Regelwerk</a>
-            <a href="#team">Team &amp; Bewerbungen</a>
-            <a href="#impressum">Impressum</a>
-            <a href="mailto:pragcrimelife@gmail.com">Kontakt</a>
-        </div>
-    </div>
-</footer>
+    <footer>
+        <span>© Prag Crimelife</span>
+        <span>Kontakt: <a href="mailto:pragcrimelife@gmail.com">pragcrimelife@gmail.com</a></span>
+    </footer>
+</div>
 
 </body>
 </html>
+
 
 
 
