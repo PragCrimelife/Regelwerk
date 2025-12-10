@@ -37,24 +37,35 @@
         }
 
         .nav-inner {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 10px 16px;
+            padding: 18px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 16px;
         }
 
-        .logo {
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: #fff;
             font-weight: 800;
+            font-size: 26px;
             letter-spacing: 2px;
-            font-size: 18px;
             text-transform: uppercase;
         }
 
-        .logo span {
+        .brand .red {
             color: #ff2b2b;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+            filter: drop-shadow(0 0 6px #000);
         }
 
         nav ul {
@@ -68,8 +79,9 @@
         nav a {
             color: #f5f5f5;
             text-decoration: none;
-            font-size: 14px;
-            padding: 6px 10px;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 10px 14px;
             border-radius: 999px;
             border: 1px solid transparent;
             transition: 0.15s ease;
@@ -82,16 +94,19 @@
         }
 
         .btn-discord {
-            border-color: #5662f6;
-            background: #5662f622;
+            border-color: #556bff;
+            background: #556bff33;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 10px 18px;
         }
 
         .btn-discord:hover {
-            background: #5662f655;
+            background: #556bff55;
         }
 
         .page-wrapper {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 80px auto 40px auto;
             padding: 24px 16px 40px 16px;
             background: rgba(0, 0, 0, 0.82);
@@ -122,11 +137,31 @@
 
         h3 {
             font-size: 17px;
-            margin: 14px 0 6px 0;
+            margin: 10px 0 4px 0;
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+            gap: 32px;
+            margin-top: 10px;
+        }
+
+        .role-box {
+            background: rgba(5, 5, 5, 0.75);
+            border-radius: 14px;
+            padding: 16px 18px 18px 18px;
+            border: 1px solid #222;
+        }
+
+        .role-box h2 {
+            border-left-color: transparent;
+            padding-left: 0;
+            margin-top: 0;
         }
 
         .role-list {
-            margin-left: 18px;
+            margin-left: 16px;
             margin-top: 4px;
         }
 
@@ -134,8 +169,24 @@
             margin-bottom: 4px;
         }
 
+        .tag {
+            display: inline-block;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 2px 8px;
+            border-radius: 999px;
+            border: 1px solid #444;
+            margin-bottom: 8px;
+            color: #cccccc;
+        }
+
+        .tag-staff { border-color: #ff2b2b; color: #ffb3b3; }
+        .tag-tech  { border-color: #4cafef; color: #b3e0ff; }
+        .tag-lead  { border-color: #ffc400; color: #ffe9a6; }
+
         .application-form {
-            margin-top: 18px;
+            margin-top: 10px;
             display: grid;
             gap: 10px;
         }
@@ -214,7 +265,11 @@
             text-decoration: underline;
         }
 
-        @media (max-width: 700px) {
+        @media (max-width: 900px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
             .nav-inner {
                 flex-direction: column;
                 align-items: flex-start;
@@ -223,10 +278,10 @@
             nav ul {
                 justify-content: flex-start;
             }
+        }
 
-            h1 {
-                font-size: 22px;
-            }
+        @media (max-width: 700px) {
+            h1 { font-size: 22px; }
         }
     </style>
 </head>
@@ -234,10 +289,16 @@
 
 <header>
     <div class="nav-inner">
-        <div class="logo"><span>PRAG</span> CRIMELIFE</div>
+        <a href="index.html" class="brand">
+            <img src="logo.png" alt="Prag Crimelife Logo" class="logo-img">
+            <span><span class="red">PRAG</span> CRIMELIFE</span>
+        </a>
         <nav>
             <ul>
-                <li><a href="index.html">Regelwerk</a></li>
+                <li><a href="index.html#discord-regeln">Discord</a></li>
+                <li><a href="index.html#ingame-regeln">Ingame</a></li>
+                <li><a href="index.html#support-regeln">Support</a></li>
+                <li><a href="index.html#gangwar-regeln">Gangwar</a></li>
                 <li><a href="team.html">Team &amp; Bewerbung</a></li>
                 <li><a href="impressum.html">Impressum</a></li>
                 <li><a class="btn-discord" href="https://discord.gg/Kac3JbPKCx" target="_blank" rel="noopener">Zum Discord</a></li>
@@ -249,105 +310,164 @@
 <div class="page-wrapper">
     <h1>Team &amp; Bewerbung</h1>
     <p class="subnote">
-        Wir bauen Prag Crimelife gerade neu auf und suchen aktive, entspannte Leute,
-        die Bock haben, als Staff mitzuziehen.
+        Prag Crimelife wird gerade von Grund auf aufgebaut.  
+        Wir suchen aktive Leute, die langfristig Bock auf das Projekt haben.
     </p>
 
-    <h2>Offene Rollen</h2>
+    <div class="layout">
+        <!-- LINKER BLOCK: ROLLEN -->
+        <div class="role-box">
+            <h2>Rollen im Team</h2>
 
-    <h3>Supporter</h3>
-    <ul class="role-list">
-        <li>Erste Anlaufstelle für Spielerfragen.</li>
-        <li>Klärung kleinerer Konflikte und Regelverstöße.</li>
-        <li>Gute Kommunikationsskills und Geduld.</li>
-        <li>Mindestalter: ca. 15+ (Ausnahmen nach Absprache).</li>
-    </ul>
+            <span class="tag tag-lead">Leitung</span>
+            <h3>Projektleitung</h3>
+            <ul class="role-list">
+                <li>Gesamtverantwortung für den Server und das Konzept.</li>
+                <li>Trifft wichtige Entscheidungen für Projekte & Entwicklung.</li>
+            </ul>
 
-    <h3>Administrator</h3>
-    <ul class="role-list">
-        <li>Bearbeitung größerer Supportfälle und Tickets.</li>
-        <li>Unterstützung bei Regel-Durchsetzung und Sanktionen.</li>
-        <li>Erfahrung mit FiveM-/Community-Servern ist von Vorteil.</li>
-        <li>Teamfähig, neutral und zuverlässig.</li>
-    </ul>
+            <h3>Stv. Projektleitung</h3>
+            <ul class="role-list">
+                <li>Unterstützt die Projektleitung im Tagesgeschäft.</li>
+                <li>Schnittstelle zwischen Management, Technik und Staff.</li>
+            </ul>
 
-    <h3>Teamleitung</h3>
-    <ul class="role-list">
-        <li>Leitung eines kleinen Support-/Admin-Teams.</li>
-        <li>Einlernen neuer Teammitglieder.</li>
-        <li>Entscheidungen bei Streitfällen / Grenzsituationen.</li>
-        <li>Hohe Eigenverantwortung, Struktur &amp; klare Kommunikation.</li>
-    </ul>
+            <span class="tag tag-lead">Management</span>
+            <h3>Management</h3>
+            <ul class="role-list">
+                <li>Koordiniert die einzelnen Teambereiche.</li>
+                <li>Plant interne Abläufe, Besprechungen und Projekte.</li>
+            </ul>
 
-    <h2>Deine Bewerbung</h2>
-    <p class="subnote">
-        Fülle das Formular möglichst vollständig aus. Deine Angaben werden verschlüsselt
-        übermittelt und anschließend an <strong>pragcrimelife@gmail.com</strong> weitergeleitet.
-    </p>
+            <h3>Stv. Management</h3>
+            <ul class="role-list">
+                <li>Unterstützt Management bei Organisation & Planung.</li>
+                <li>Hilft beim Einlernen neuer Teammitglieder.</li>
+            </ul>
 
-    <!-- Formular ohne mailto, mit HTTP-POST über FormSubmit -->
-    <form class="application-form"
-          action="https://formsubmit.co/pragcrimelife@gmail.com"
-          method="POST">
+            <span class="tag tag-tech">Analyse & Technik</span>
+            <h3>Head-Analyst</h3>
+            <ul class="role-list">
+                <li>Leitet das Analysten-Team.</li>
+                <li>Wertet Clips, Reports und Statistiken aus.</li>
+            </ul>
 
-        <!-- FormSubmit-Optionen -->
-        <input type="hidden" name="_subject" value="Neue Teambewerbung – Prag Crimelife">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <!-- nach dem Absenden auf eine Danke-Seite zurück (kannst du später bauen) -->
-        <!-- <input type="hidden" name="_next" value="https://pragcrimelife.github.io/Regelwerk/danke.html"> -->
+            <h3>Analyst</h3>
+            <ul class="role-list">
+                <li>Analysiert Beweise bei Regelverstößen.</li>
+                <li>Unterstützt Support & Management mit Auswertungen.</li>
+            </ul>
 
-        <div class="field-group">
-            <label for="name">Name / Ingame-Name *</label>
-            <input id="name" name="Name" required>
+            <h3>Developer</h3>
+            <ul class="role-list">
+                <li>Arbeitet an Scripts, Systemen und Performance.</li>
+                <li>Setzt neue Features um und fixed Bugs.</li>
+            </ul>
+
+            <h3>Mapper</h3>
+            <ul class="role-list">
+                <li>Erstellt/überarbeitet MLOs und Mapping.</li>
+                <li>Sorgt für eine stimmige Crime-Atmosphäre in Prag.</li>
+            </ul>
+
+            <span class="tag tag-staff">Staff</span>
+            <h3>Administrator</h3>
+            <ul class="role-list">
+                <li>Bearbeitet größere Supportfälle und Beschwerden.</li>
+                <li>Setzt Bans, Warns und Sanktionen nach Regelwerk um.</li>
+            </ul>
+
+            <h3>Moderator</h3>
+            <ul class="role-list">
+                <li>Achtet auf Chat, Verhalten und Grundstimmung der Community.</li>
+                <li>Greift bei Streit, Trolling oder Regelbrüchen ein.</li>
+            </ul>
+
+            <h3>Supporter</h3>
+            <ul class="role-list">
+                <li>Erste Anlaufstelle für Spielerfragen und kleinere Konflikte.</li>
+                <li>Hilft neuen Spielern beim Einstieg.</li>
+            </ul>
         </div>
 
-        <div class="field-group">
-            <label for="age">Alter *</label>
-            <input id="age" name="Alter" required>
+        <!-- RECHTER BLOCK: BEWERBUNGSFORMULAR -->
+        <div class="role-box">
+            <h2>Bewirb dich beim Team</h2>
+            <p class="subnote">
+                Fülle das Formular ehrlich und ausführlich aus.  
+                Deine Angaben werden verschlüsselt an <strong>pragcrimelife@gmail.com</strong> geschickt.
+            </p>
+
+            <form class="application-form"
+                  action="https://formsubmit.co/pragcrimelife@gmail.com"
+                  method="POST">
+
+                <!-- FormSubmit-Einstellungen -->
+                <input type="hidden" name="_subject" value="Neue Teambewerbung – Prag Crimelife">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+
+                <div class="field-group">
+                    <label for="name">Name / Ingame-Name *</label>
+                    <input id="name" name="Name" required>
+                </div>
+
+                <div class="field-group">
+                    <label for="age">Alter *</label>
+                    <input id="age" name="Alter" required>
+                </div>
+
+                <div class="field-group">
+                    <label for="discord">Discord-Tag *</label>
+                    <input id="discord" name="Discord" placeholder="z.B. Name#1234" required>
+                </div>
+
+                <div class="field-group">
+                    <label for="role">Gewünschte Rolle *</label>
+                    <select id="role" name="Rolle" required>
+                        <option value="">Bitte auswählen…</option>
+                        <option>Supporter</option>
+                        <option>Moderator</option>
+                        <option>Administrator</option>
+                        <option>Analyst</option>
+                        <option>Head-Analyst</option>
+                        <option>Developer</option>
+                        <option>Mapper</option>
+                        <option>Management</option>
+                        <option>Stv. Management</option>
+                        <option>Projektleitung</option>
+                        <option>Stv. Projektleitung</option>
+                    </select>
+                </div>
+
+                <div class="field-group">
+                    <label for="experience">Erfahrung *</label>
+                    <textarea id="experience" name="Erfahrung"
+                              placeholder="Hast du schon im Team auf anderen Servern gearbeitet? Welche Projekte kennst du?"
+                              required></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label for="activity">Aktivität *</label>
+                    <textarea id="activity" name="Aktivität"
+                              placeholder="Wie viele Stunden pro Woche kannst du ungefähr investieren?"
+                              required></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label for="why">Warum genau du?</label>
+                    <textarea id="why" name="Warum_du"
+                              placeholder="Was macht dich als Teammitglied stark? Wie tickst du als Person?"></textarea>
+                </div>
+
+                <p class="hint">
+                    Mit dem Absenden stimmst du zu, dass wir deine Angaben zur Bearbeitung der Bewerbung nutzen.
+                </p>
+
+                <button class="btn-submit" type="submit">Bewerbung senden</button>
+            </form>
         </div>
-
-        <div class="field-group">
-            <label for="discord">Discord-Tag *</label>
-            <input id="discord" name="Discord" placeholder="z.B. Name#1234" required>
-        </div>
-
-        <div class="field-group">
-            <label for="role">Gewünschte Rolle *</label>
-            <select id="role" name="Rolle" required>
-                <option value="">Bitte auswählen…</option>
-                <option value="Supporter">Supporter</option>
-                <option value="Administrator">Administrator</option>
-                <option value="Teamleitung">Teamleitung</option>
-            </select>
-        </div>
-
-        <div class="field-group">
-            <label for="experience">Erfahrung *</label>
-            <textarea id="experience" name="Erfahrung"
-                      placeholder="Hast du schon auf anderen Servern im Team gearbeitet? Welche Erfahrungen bringst du mit?"
-                      required></textarea>
-        </div>
-
-        <div class="field-group">
-            <label for="activity">Aktivität *</label>
-            <textarea id="activity" name="Aktivität"
-                      placeholder="Wie viele Stunden pro Woche kannst du ungefähr investieren?"
-                      required></textarea>
-        </div>
-
-        <div class="field-group">
-            <label for="why">Warum du?</label>
-            <textarea id="why" name="Warum_du"
-                      placeholder="Was unterscheidet dich von anderen Bewerbern?"></textarea>
-        </div>
-
-        <p class="hint">
-            Mit dem Absenden stimmst du zu, dass wir deine Angaben zur Bearbeitung der Bewerbung verwenden.
-        </p>
-
-        <button class="btn-submit" type="submit">Bewerbung senden</button>
-    </form>
+    </div>
 
     <footer>
         <span>© Prag Crimelife</span>
@@ -357,5 +477,7 @@
 
 </body>
 </html>
+
+
 
 
