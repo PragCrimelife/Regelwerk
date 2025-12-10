@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Prag Crimelife – Regelwerk & Info</title>
+    <title>Prag Crimelife – Regelwerk</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         * {
@@ -19,14 +19,15 @@
             line-height: 1.5;
         }
 
-        /* dunkler Overlay über dem Bild, für bessere Lesbarkeit */
         body::before {
             content: "";
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.85);
             z-index: -1;
         }
+
+        /* HEADER / NAVIGATION */
 
         header {
             position: sticky;
@@ -40,22 +41,33 @@
         .nav-inner {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 10px 16px;
+            padding: 18px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 16px;
         }
 
-        .logo {
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: #fff;
             font-weight: 800;
+            font-size: 26px;
             letter-spacing: 2px;
-            font-size: 18px;
             text-transform: uppercase;
         }
 
-        .logo span {
+        .brand .red {
             color: #ff2b2b;
+        }
+
+        .logo-img {
+            height: 60px; /* hier größer/kleiner machen */
+            width: auto;
+            filter: drop-shadow(0 0 6px #000);
         }
 
         nav ul {
@@ -69,8 +81,9 @@
         nav a {
             color: #f5f5f5;
             text-decoration: none;
-            font-size: 14px;
-            padding: 6px 10px;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 10px 14px;
             border-radius: 999px;
             border: 1px solid transparent;
             transition: 0.15s ease;
@@ -83,19 +96,24 @@
         }
 
         .btn-discord {
-            border-color: #5662f6;
-            background: #5662f622;
+            border-color: #556bff;
+            background: #556bff33;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 10px 18px;
         }
 
         .btn-discord:hover {
-            background: #5662f655;
+            background: #556bff55;
         }
+
+        /* SEITEN-INHALT */
 
         .page-wrapper {
             max-width: 1100px;
             margin: 80px auto 40px auto;
             padding: 24px 16px 40px 16px;
-            background: rgba(0, 0, 0, 0.78);
+            background: rgba(0, 0, 0, 0.82);
             border-radius: 18px;
             box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
         }
@@ -104,12 +122,12 @@
             font-size: 26px;
             margin-bottom: 6px;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         .subnote {
             font-size: 13px;
             color: #bbbbbb;
+            margin-bottom: 18px;
         }
 
         h2 {
@@ -117,12 +135,10 @@
             margin: 32px 0 12px 0;
             text-transform: uppercase;
             letter-spacing: 1px;
-            border-left: 3px solid #ff2b2b;
-            padding-left: 10px;
         }
 
         h3 {
-            font-size: 17px;
+            font-size: 18px;
             margin: 18px 0 6px 0;
         }
 
@@ -131,7 +147,7 @@
         }
 
         .rule-list {
-            margin-left: 18px;
+            margin-left: 16px;
             margin-top: 4px;
         }
 
@@ -143,6 +159,12 @@
             border: none;
             border-top: 1px solid #333;
             margin: 28px 0;
+        }
+
+        .subnote-small {
+            font-size: 12px;
+            color: #aaaaaa;
+            margin-top: -6px;
         }
 
         footer {
@@ -166,7 +188,7 @@
             text-decoration: underline;
         }
 
-        @media (max-width: 700px) {
+        @media (max-width: 900px) {
             .nav-inner {
                 flex-direction: column;
                 align-items: flex-start;
@@ -175,10 +197,11 @@
             nav ul {
                 justify-content: flex-start;
             }
+        }
 
-            h1 {
-                font-size: 20px;
-            }
+        @media (max-width: 600px) {
+            h1 { font-size: 22px; }
+            h2 { font-size: 20px; }
         }
     </style>
 </head>
@@ -186,7 +209,10 @@
 
 <header>
     <div class="nav-inner">
-        <div class="logo"><span>PRAG</span> CRIMELIFE</div>
+        <a href="index.html" class="brand">
+            <img src="logo.png" alt="Prag Crimelife Logo" class="logo-img">
+            <span><span class="red">PRAG</span> CRIMELIFE</span>
+        </a>
         <nav>
             <ul>
                 <li><a href="#discord-regeln">Discord</a></li>
@@ -202,10 +228,11 @@
 </header>
 
 <div class="page-wrapper">
-    <header>
-        <h1>Prag Crimelife – Regelwerk</h1>
-        <p class="subnote">Gültig für Discord und Ingame. Mit dem Betreten des Servers akzeptierst du diese Regeln.</p>
-    </header>
+    <h1>Regelwerk</h1>
+    <p class="subnote">
+        Dieses Regelwerk gilt für Prag Crimelife auf Discord und Ingame.  
+        Mit dem Betreten des Servers akzeptierst du die folgenden Regeln.
+    </p>
 
     <!-- DISCORD -->
     <section id="discord-regeln">
@@ -334,17 +361,70 @@
 
     <hr>
 
+    <!-- TROLLING / BAITING -->
+    <section id="trolling-regeln">
+        <h2>Trolling / Baiting</h2>
+
+        <h3>4.1 Provokation</h3>
+        <ul class="rule-list">
+            <li>Bewusstes und unbegründetes Provozieren von Spielern oder Fraktionen ist verboten.</li>
+        </ul>
+
+        <h3>4.2 Namen</h3>
+        <ul class="rule-list">
+            <li>Unangebrachte Steam-/FiveM-/Discord-Namen können geändert oder gesperrt werden.</li>
+        </ul>
+
+        <h3>4.3 Fake-Mitgliedschaft</h3>
+        <ul class="rule-list">
+            <li>Sich als Fraktionsmitglied auszugeben, obwohl man es nicht ist, ist strikt untersagt.</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <!-- BLACKLIST -->
+    <section id="blacklist-woerter">
+        <h2>Blacklisted Wörter</h2>
+        <ul class="rule-list">
+            <li>Schwer beleidigende, erniedrigende oder herabwürdigende Ausdrücke sind verboten.</li>
+            <li>Sexistische, rassistische, homophobe oder allgemein diskriminierende Formulierungen sind untersagt.</li>
+            <li>Angriffe auf andere wegen Geschlecht, Herkunft, Sexualität, Religion oder persönlicher Merkmale sind nicht erlaubt.</li>
+            <li>Beleidigungen in anderen Sprachen oder TOS-Umgehungen fallen ebenfalls darunter.</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <!-- FRAKTIONEN -->
+    <section id="fraktions-regeln">
+        <h2>Fraktionsregelwerk</h2>
+        <ul class="rule-list">
+            <li>Maximal 25 Mitglieder pro Fraktion, mindestens 10 aktive Spieler.</li>
+            <li>Jede Fraktion benötigt mindestens zwei klare Erkennungsmerkmale.</li>
+            <li>Regelverstöße von zwei oder mehr Fraktionsmitgliedern können Strafen für die gesamte Fraktion nach sich ziehen.</li>
+            <li>Maximal 3 Verwarnungen, diese verfallen nach 7 Tagen.</li>
+            <li>Maximal 3 Leader, nur ein Leaderwechsel innerhalb eines Zeitraums erlaubt.</li>
+            <li>Report-Clips dürfen maximal 24 Stunden alt sein.</li>
+            <li>Support-Flucht ins Lager ist verboten.</li>
+            <li>Maximal 3 Gangwar-Punkte gleichzeitig.</li>
+            <li>Den Kampf absichtlich zu verlassen ist verboten.</li>
+            <li>Server-Regeln gelten vollumfänglich auch im Gangwar.</li>
+        </ul>
+    </section>
+
+    <hr>
+
     <!-- GANGWAR -->
     <section id="gangwar-regeln">
         <h2>Gangwar-Regeln</h2>
-
         <ul class="rule-list">
             <li>Zone betreten bedeutet, dass man in der Zone bleibt (kein ständiges Rein/Raus).</li>
             <li>Dächer- und Spawncamping sind verboten.</li>
             <li>Der Verteidiger muss anfahren.</li>
             <li>Mauerbruch ist nur erlaubt, wenn sich dahinter keine Person befindet.</li>
             <li>Keine Nahkampfwaffen.</li>
-            <li>Left- oder Right-Peeks maximal 3 Sekunden.</li>
+            <li>Left-/Right-Peeks maximal 3 Sekunden.</li>
             <li>Keine Kills außerhalb der Gangwar-Zone.</li>
             <li>Gegner dürfen nicht absichtlich gerammt oder überfahren werden.</li>
             <li>Teilnahme am laufenden Gangwar ist Pflicht, kein grundloses Quitten.</li>
@@ -360,6 +440,8 @@
 
 </body>
 </html>
+
+
 
 
 
