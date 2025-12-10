@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Prag Crimelife – Impressum & Kontakt</title>
+    <title>Prag Crimelife – Impressum</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         * {
@@ -23,7 +23,7 @@
             content: "";
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.85);
             z-index: -1;
         }
 
@@ -37,24 +37,35 @@
         }
 
         .nav-inner {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 10px 16px;
+            padding: 18px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 16px;
         }
 
-        .logo {
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: #fff;
             font-weight: 800;
+            font-size: 26px;
             letter-spacing: 2px;
-            font-size: 18px;
             text-transform: uppercase;
         }
 
-        .logo span {
+        .brand .red {
             color: #ff2b2b;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+            filter: drop-shadow(0 0 6px #000);
         }
 
         nav ul {
@@ -68,8 +79,9 @@
         nav a {
             color: #f5f5f5;
             text-decoration: none;
-            font-size: 14px;
-            padding: 6px 10px;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 10px 14px;
             border-radius: 999px;
             border: 1px solid transparent;
             transition: 0.15s ease;
@@ -82,41 +94,45 @@
         }
 
         .btn-discord {
-            border-color: #5662f6;
-            background: #5662f622;
+            border-color: #556bff;
+            background: #556bff33;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 10px 18px;
         }
 
         .btn-discord:hover {
-            background: #5662f655;
+            background: #556bff55;
         }
 
         .page-wrapper {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 80px auto 40px auto;
             padding: 24px 16px 40px 16px;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.82);
             border-radius: 18px;
             box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
         }
 
         h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
+            font-size: 26px;
+            margin-bottom: 6px;
             text-transform: uppercase;
         }
 
         h2 {
-            font-size: 18px;
-            margin: 20px 0 6px 0;
+            font-size: 20px;
+            margin: 24px 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        p {
-            margin-bottom: 6px;
+        p, li {
             font-size: 14px;
         }
 
-        a {
-            color: #f5f5f5;
+        ul {
+            margin-left: 18px;
         }
 
         footer {
@@ -140,7 +156,7 @@
             text-decoration: underline;
         }
 
-        @media (max-width: 700px) {
+        @media (max-width: 900px) {
             .nav-inner {
                 flex-direction: column;
                 align-items: flex-start;
@@ -149,10 +165,6 @@
             nav ul {
                 justify-content: flex-start;
             }
-
-            h1 {
-                font-size: 20px;
-            }
         }
     </style>
 </head>
@@ -160,10 +172,16 @@
 
 <header>
     <div class="nav-inner">
-        <div class="logo"><span>PRAG</span> CRIMELIFE</div>
+        <a href="index.html" class="brand">
+            <img src="logo.png" alt="Prag Crimelife Logo" class="logo-img">
+            <span><span class="red">PRAG</span> CRIMELIFE</span>
+        </a>
         <nav>
             <ul>
-                <li><a href="index.html">Regelwerk</a></li>
+                <li><a href="index.html#discord-regeln">Discord</a></li>
+                <li><a href="index.html#ingame-regeln">Ingame</a></li>
+                <li><a href="index.html#support-regeln">Support</a></li>
+                <li><a href="index.html#gangwar-regeln">Gangwar</a></li>
                 <li><a href="team.html">Team &amp; Bewerbung</a></li>
                 <li><a href="impressum.html">Impressum</a></li>
                 <li><a class="btn-discord" href="https://discord.gg/Kac3JbPKCx" target="_blank" rel="noopener">Zum Discord</a></li>
@@ -173,23 +191,40 @@
 </header>
 
 <div class="page-wrapper">
-    <h1>Impressum &amp; Kontakt</h1>
+    <h1>Impressum / Kontakt</h1>
 
-    <h2>Projektleitung</h2>
-    <p>Projekt: Prag Crimelife</p>
-    <p>Projektleitung: Prag Crimelife</p>
-    <p>E-Mail: <a href="mailto:pragcrimelife@gmail.com">pragcrimelife@gmail.com</a></p>
+    <h2>Verantwortlich für den Inhalt</h2>
+    <p>
+        Projektleitung <strong>Prag Crimelife</strong><br>
+        E-Mail: <a href="mailto:pragcrimelife@gmail.com">pragcrimelife@gmail.com</a>
+    </p>
 
-    <h2>Kontakt</h2>
-    <p>Für Team-Bewerbungen nutze bitte die Seite <a href="team.html">Team &amp; Bewerbung</a>.</p>
-    <p>Für Regelverstöße und Ingame-Support nutze bitte unseren Discord:</p>
-    <p><a href="https://discord.gg/Kac3JbPKCx" target="_blank" rel="noopener">Discord von Prag Crimelife öffnen</a></p>
+    <h2>Projektinfo</h2>
+    <p>
+        Prag Crimelife ist ein privates FiveM-/Gaming-Projekt ohne kommerziellen Hintergrund.  
+        Alle Marken- und Produktnamen gehören den jeweiligen Rechteinhabern.
+    </p>
+
+    <h2>Kontaktaufnahme</h2>
+    <ul>
+        <li>Für Team-Bewerbungen: bitte das Formular auf der Seite <a href="team.html">Team &amp; Bewerbung</a> nutzen.</li>
+        <li>Für Regelverstöße und Ingame-Themen: bitte den Discord-Support verwenden.</li>
+        <li>Allgemeine Fragen zum Projekt: <a href="mailto:pragcrimelife@gmail.com">pragcrimelife@gmail.com</a></li>
+    </ul>
+
+    <h2>Haftungsausschluss</h2>
+    <p>
+        Wir übernehmen keine Verantwortung für Inhalte externer Links.  
+        Für den Inhalt verlinkter Seiten sind ausschließlich deren Betreiber verantwortlich.
+    </p>
 
     <footer>
         <span>© Prag Crimelife</span>
-        <span>Kontakt: <a href="mailto:pragcrimelife@gmail.com">pragcrimelife@gmail.com</a></span>
+        <span>Discord: <a href="https://discord.gg/Kac3JbPKCx" target="_blank" rel="noopener">Server beitreten</a></span>
     </footer>
 </div>
 
 </body>
 </html>
+
+
