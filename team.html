@@ -281,16 +281,22 @@
 
     <h2>Deine Bewerbung</h2>
     <p class="subnote">
-        Fülle das Formular möglichst vollständig aus. Deine Angaben werden per E-Mail
-        an die Projektleitung gesendet: pragcrimelife@gmail.com.
+        Fülle das Formular möglichst vollständig aus. Deine Angaben werden verschlüsselt
+        übermittelt und anschließend an <strong>pragcrimelife@gmail.com</strong> weitergeleitet.
     </p>
 
-    <!--
-      WICHTIG:
-      Dieses Formular verwendet "mailto:" – das öffnet beim Bewerber das E-Mail-Programm
-      mit den Daten. Für echten automatischen Versand bräuchtet ihr später einen kleinen Backend-Service.
-    -->
-    <form class="application-form" action="mailto:pragcrimelife@gmail.com" method="post" enctype="text/plain">
+    <!-- Formular ohne mailto, mit HTTP-POST über FormSubmit -->
+    <form class="application-form"
+          action="https://formsubmit.co/pragcrimelife@gmail.com"
+          method="POST">
+
+        <!-- FormSubmit-Optionen -->
+        <input type="hidden" name="_subject" value="Neue Teambewerbung – Prag Crimelife">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <!-- nach dem Absenden auf eine Danke-Seite zurück (kannst du später bauen) -->
+        <!-- <input type="hidden" name="_next" value="https://pragcrimelife.github.io/Regelwerk/danke.html"> -->
+
         <div class="field-group">
             <label for="name">Name / Ingame-Name *</label>
             <input id="name" name="Name" required>
@@ -318,22 +324,29 @@
 
         <div class="field-group">
             <label for="experience">Erfahrung *</label>
-            <textarea id="experience" name="Erfahrung" placeholder="Hast du schon auf anderen Servern im Team gearbeitet? Welche Erfahrungen bringst du mit?" required></textarea>
+            <textarea id="experience" name="Erfahrung"
+                      placeholder="Hast du schon auf anderen Servern im Team gearbeitet? Welche Erfahrungen bringst du mit?"
+                      required></textarea>
         </div>
 
         <div class="field-group">
             <label for="activity">Aktivität *</label>
-            <textarea id="activity" name="Aktivität" placeholder="Wie viele Stunden pro Woche kannst du ungefähr investieren?" required></textarea>
+            <textarea id="activity" name="Aktivität"
+                      placeholder="Wie viele Stunden pro Woche kannst du ungefähr investieren?"
+                      required></textarea>
         </div>
 
         <div class="field-group">
             <label for="why">Warum du?</label>
-            <textarea id="why" name="Warum_du" placeholder="Was unterscheidet dich von anderen Bewerbern?"></textarea>
+            <textarea id="why" name="Warum_du"
+                      placeholder="Was unterscheidet dich von anderen Bewerbern?"></textarea>
         </div>
 
-        <p class="hint">Mit dem Absenden bestätigst du, dass deine Angaben korrekt sind.</p>
+        <p class="hint">
+            Mit dem Absenden stimmst du zu, dass wir deine Angaben zur Bearbeitung der Bewerbung verwenden.
+        </p>
 
-        <button class="btn-submit" type="submit">Bewerbung per E-Mail öffnen</button>
+        <button class="btn-submit" type="submit">Bewerbung senden</button>
     </form>
 
     <footer>
@@ -344,3 +357,5 @@
 
 </body>
 </html>
+
+
