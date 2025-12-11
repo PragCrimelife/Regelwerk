@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>Prag Crimelife – Startseite</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         * {
             box-sizing: border-box;
@@ -14,13 +13,21 @@
 
         body {
             font-family: Arial, sans-serif;
-            background: #0a0a0f;
-            color: #050505;
+            background: #000 url('background.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #f5f5f5;
+            line-height: 1.5;
+            min-height: 100vh;
+            position: relative;
         }
 
-        a {
-            color: inherit;
-            text-decoration: none;
+        /* Overlay über dem Bild */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at top, rgba(255,0,0,0.18), rgba(0,0,0,0.92));
+            z-index: -1;
         }
 
         .page-wrapper {
@@ -29,498 +36,374 @@
             flex-direction: column;
         }
 
-        /* ---------- HEADER / NAV ---------- */
-
         header {
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.95), rgba(0,0,0,0.82));
+            backdrop-filter: blur(8px);
             position: sticky;
             top: 0;
-            z-index: 50;
-            background: rgba(5, 5, 10, 0.96);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            z-index: 20;
         }
 
         .nav-inner {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 12px 20px;
+            padding: 10px 18px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 14px;
-            flex-wrap: wrap;
+            gap: 24px;
         }
 
         .brand {
             display: flex;
             align-items: center;
             gap: 10px;
-            cursor: pointer;
-            transition: transform 0.25s ease, filter 0.25s ease;
         }
 
-        .brand-logo {
-            width: 42px;
-            height: 42px;
-            border-radius: 12px;
-            background: radial-gradient(circle at 30% 0%, #ff4444, #1a1a1a 55%, #000 100%);
+        .brand-logo-wrapper {
+            width: 44px;
+            height: 44px;
+            border-radius: 999px;
+            background: radial-gradient(circle, rgba(255,255,255,0.08), rgba(0,0,0,0.9));
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
         }
 
-        /* dein Logo – Datei muss logo.png heißen */
-        .brand-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .brand-logo-wrapper img {
+            width: 34px;
+            height: 34px;
+            object-fit: contain;
+            transition: transform 0.25s ease, filter 0.25s ease;
+            filter: drop-shadow(0 0 4px rgba(255,255,255,0.2));
+            animation: glowPulse 3s ease-in-out infinite;
         }
 
-        .brand-text {
+        .brand-logo-wrapper:hover img {
+            transform: scale(1.07);
+            filter: drop-shadow(0 0 10px rgba(255,0,0,0.9));
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { filter: drop-shadow(0 0 4px rgba(255,255,255,0.15)); }
+            50%      { filter: drop-shadow(0 0 10px rgba(255,0,0,0.8)); }
+        }
+
+        .brand-title {
             display: flex;
             flex-direction: column;
-            line-height: 1.1;
         }
 
-        .brand-text span:first-child {
-            font-size: 15px;
-            letter-spacing: 0.25em;
+        .brand-title span {
+            font-size: 13px;
+            letter-spacing: 2px;
             text-transform: uppercase;
             color: #ff3b3b;
         }
 
-        .brand-text span:last-child {
-            font-size: 18px;
-            font-weight: 800;
-            color: #f5f5f5;
-        }
-
-        .brand:hover {
-            transform: translateY(-2px) scale(1.03);
-            filter: drop-shadow(0 0 12px rgba(255, 60, 60, 0.8));
+        .brand-title strong {
+            font-size: 20px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 22px;
             align-items: center;
+            gap: 16px;
             flex-wrap: wrap;
         }
 
         nav a {
+            color: #f5f5f5;
+            text-decoration: none;
+            font-size: 15px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
             position: relative;
-            font-size: 16px;    /* GRÖSSER */
-            color: #e5e5e5;
-            padding: 4px 0;
-            transition: color 0.2s ease;
         }
 
         nav a::after {
             content: "";
             position: absolute;
-            left: 0;
-            bottom: -3px;
-            width: 0;
+            left: 14px;
+            right: 14px;
+            bottom: 2px;
             height: 2px;
-            background: linear-gradient(90deg, #ff3b3b, #b600ff);
             border-radius: 999px;
-            transition: width 0.2s ease;
-        }
-
-        nav a:hover {
-            color: #ffffff;
+            background: linear-gradient(90deg, rgba(255,0,0,0.8), rgba(255,255,255,0.6));
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.2s ease;
         }
 
         nav a:hover::after {
-            width: 100%;
+            transform: scaleX(1);
         }
 
-        .nav-cta {
-            padding: 8px 18px;
+        nav a:hover {
+            background: rgba(255,255,255,0.05);
+            transform: translateY(-1px);
+        }
+
+        .nav-discord-btn {
+            padding: 8px 16px;
             border-radius: 999px;
-            border: 1px solid #4d63ff;
-            background: radial-gradient(circle at 0 0, #4d63ff, #141428);
-            color: #ffffff;
-            font-size: 15px;
+            border: 1px solid rgba(102,153,255,0.8);
+            background: radial-gradient(circle at top left, rgba(102,153,255,0.35), rgba(0,0,30,0.9));
             font-weight: 600;
-            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04);
-            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+            box-shadow: 0 0 12px rgba(102,153,255,0.4);
         }
 
-        .nav-cta:hover {
-            transform: translateY(-1px) scale(1.02);
-            box-shadow: 0 0 18px rgba(77, 99, 255, 0.7);
-            background: radial-gradient(circle at 0 0, #5f74ff, #151532);
+        .nav-discord-btn:hover {
+            background: radial-gradient(circle at top left, rgba(102,153,255,0.6), rgba(0,0,40,0.95));
+            box-shadow: 0 0 18px rgba(102,153,255,0.7);
         }
-
-        /* ---------- HERO ---------- */
 
         main {
             flex: 1;
-            background: radial-gradient(circle at top, #1a1a26 0%, #05050a 55%, #020206 100%);
         }
 
         .hero {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 40px 20px 60px 20px;
+            max-width: 1200px;
+            margin: 40px auto 10px auto;
+            padding: 0 18px;
             display: grid;
-            grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+            grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
             gap: 40px;
-            align-items: center;
+        }
+
+        .hero-left {
+            padding-right: 10px;
         }
 
         .hero-kicker {
             font-size: 13px;
-            letter-spacing: 0.3em;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            color: #ff5b5b;
+            color: #ff4d4d;
             margin-bottom: 10px;
         }
 
-        .hero-title {
-            font-size: 36px;
-            font-weight: 800;
-            line-height: 1.1;
-            color: #ffffff;
+        .hero h1 {
+            font-size: 32px;
+            line-height: 1.25;
             margin-bottom: 14px;
-        }
-
-        .hero-title span {
-            color: #ff3b3b;
-        }
-
-        .hero-subtitle {
-            font-size: 15px;
-            color: #ccccd9;
-            max-width: 460px;
-            margin-bottom: 22px;
-        }
-
-        .hero-cta-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 26px;
-        }
-
-        .btn-primary {
-            padding: 10px 22px;
-            border-radius: 999px;
-            border: none;
-            background: linear-gradient(120deg, #ff3b3b, #ff8a3b);
-            color: #ffffff;
-            font-size: 15px;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.55);
-            transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
-            filter: brightness(1.05);
-        }
-
-        .btn-ghost {
-            padding: 10px 18px;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            background: rgba(10, 10, 20, 0.8);
-            color: #f4f4ff;
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .btn-ghost:hover {
-            background: rgba(20, 20, 35, 0.95);
-            transform: translateY(-1px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-        }
-
-        .hero-meta {
-            font-size: 12px;
-            color: #8484a0;
-        }
-
-        .hero-meta span {
-            color: #f5f5ff;
-            font-weight: 600;
-        }
-
-        .hero-visual {
-            display: flex;
-            justify-content: center;
-        }
-
-        .hero-card {
-            width: 100%;
-            max-width: 420px;
-            background: radial-gradient(circle at 0 0, #ff3b3b 0%, #120815 35%, #05050a 75%);
-            border-radius: 22px;
-            padding: 18px 18px 20px 18px;
-            box-shadow: 0 26px 60px rgba(0, 0, 0, 0.9);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-card::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.15) 0, transparent 40%),
-                radial-gradient(circle at 80% 120%, rgba(255, 80, 80, 0.55) 0, transparent 55%);
-            opacity: 0.8;
-            pointer-events: none;
-        }
-
-        .hero-card-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 16px;
-        }
-
-        .hero-card-title {
-            font-size: 13px;
-            font-weight: 600;
-            color: #ffecec;
-            letter-spacing: 0.07em;
             text-transform: uppercase;
         }
 
-        .hero-card-pill {
-            font-size: 11px;
-            padding: 4px 10px;
-            border-radius: 999px;
-            background: rgba(0, 0, 0, 0.8);
-            color: #ffbbbb;
-            border: 1px solid rgba(255, 255, 255, 0.22);
+        .hero h1 span {
+            color: #ff4d4d;
         }
 
-        .hero-card-main {
-            position: relative;
-            z-index: 1;
-            background: rgba(0, 0, 0, 0.75);
-            border-radius: 18px;
-            padding: 16px 16px 14px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
+        .hero-sub {
+            font-size: 15px;
+            color: #d5d5d5;
+            max-width: 560px;
         }
 
-        .hero-card-stat {
-            padding: 10px 10px;
-            border-radius: 12px;
-            background: radial-gradient(circle at 0 0, #1b1b2d, #05050d);
-            border: 1px solid rgba(255, 255, 255, 0.07);
-        }
-
-        .hero-card-stat-label {
-            font-size: 11px;
-            color: #b5b5e0;
-        }
-
-        .hero-card-stat-value {
-            font-size: 18px;
-            font-weight: 700;
-            color: #ffffff;
-        }
-
-        .hero-card-bottom {
-            margin-top: 10px;
+        .hero-badges {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #f5f5ff;
-            font-size: 11px;
-        }
-
-        .hero-card-badges {
-            display: flex;
-            gap: 6px;
             flex-wrap: wrap;
+            gap: 10px;
+            margin: 18px 0 22px 0;
         }
 
         .badge {
-            padding: 3px 8px;
+            font-size: 12px;
+            padding: 4px 10px;
             border-radius: 999px;
-            background: rgba(0, 0, 0, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.19);
+            border: 1px solid rgba(255,255,255,0.14);
+            background: rgba(0,0,0,0.7);
         }
 
-        /* ---------- Info-Karten ---------- */
-
-        .info-section {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px 32px 20px;
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
-        .info-grid {
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 18px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff3b3b, #ff7a59);
+            color: #000;
+            font-weight: 600;
+            box-shadow: 0 0 18px rgba(255, 59, 59, 0.7);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 0 24px rgba(255, 59, 59, 0.9);
+        }
+
+        .btn-ghost {
+            border-color: rgba(255,255,255,0.4);
+            color: #f5f5f5;
+            background: rgba(0,0,0,0.7);
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255,255,255,0.06);
+            transform: translateY(-1px);
+        }
+
+        .hero-right {
+            background: radial-gradient(circle at top, rgba(255,59,59,0.16), rgba(0,0,0,0.96));
+            border-radius: 18px;
+            border: 1px solid rgba(255,59,59,0.35);
+            padding: 18px 18px 16px 18px;
+            box-shadow: 0 0 28px rgba(255,59,59,0.45);
+        }
+
+        .hero-right h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+            font-size: 13px;
+        }
+
+        .role-pill {
+            padding: 8px 10px;
+            border-radius: 10px;
+            background: rgba(0,0,0,0.8);
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .role-pill strong {
+            font-size: 13px;
+            color: #ff9393;
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 26px auto 40px auto;
+            padding: 0 18px;
+        }
+
+        .section h2 {
+            font-size: 20px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            font-size: 14px;
+            color: #d0d0d0;
+            max-width: 900px;
+        }
+
+        .three-cols {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 18px;
+            margin-top: 18px;
         }
 
-        .info-card {
-            background: radial-gradient(circle at 0 0, #141421, #05050b);
-            border-radius: 16px;
-            padding: 16px 16px 18px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            color: #d7d7f0;
-            font-size: 13px;
+        .card {
+            background: rgba(0,0,0,0.85);
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 14px 14px 16px 14px;
+            font-size: 14px;
         }
 
-        .info-card h3 {
+        .card h3 {
             font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #ffffff;
-        }
-
-        .info-card p {
-            font-size: 13px;
-            color: #bcbcde;
-        }
-
-        /* ---------- Team-Bereich unten ---------- */
-
-        .team-section {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px 50px 20px;
-        }
-
-        .team-section h2 {
-            font-size: 22px;
-            color: #ffffff;
             margin-bottom: 8px;
         }
 
-        .team-section p {
-            font-size: 14px;
-            color: #c5c5e0;
-            margin-bottom: 16px;
-        }
-
-        .team-roles {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 16px;
-        }
-
-        .team-role-card {
-            background: radial-gradient(circle at 0 0, #181826, #05050b);
-            border-radius: 16px;
-            padding: 14px 16px 16px;
-            border: 1px solid rgba(255, 255, 255, 0.07);
-        }
-
-        .team-role-card h3 {
-            font-size: 14px;
-            color: #ffffff;
-            margin-bottom: 6px;
-        }
-
-        .team-role-card ul {
-            padding-left: 18px;
+        .card ul {
+            list-style: none;
             font-size: 13px;
-            color: #c0c0dd;
+            color: #d3d3d3;
         }
 
-        .team-role-card li {
-            margin-bottom: 4px;
+        .card ul li + li {
+            margin-top: 4px;
         }
-
-        .team-note {
-            font-size: 12px;
-            color: #9090b8;
-            margin-top: 14px;
-        }
-
-        /* ---------- Footer ---------- */
 
         footer {
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
-            background: #050509;
-            color: #9090b0;
-            font-size: 12px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            background: rgba(0,0,0,0.95);
+            margin-top: auto;
         }
 
         .footer-inner {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 10px 20px 12px 20px;
+            padding: 12px 18px 14px 18px;
             display: flex;
-            justify-content: space-between;
-            gap: 12px;
             flex-wrap: wrap;
+            justify-content: space-between;
             align-items: center;
+            gap: 10px;
+            font-size: 12px;
+            color: #b0b0b0;
         }
 
         .footer-links {
             display: flex;
-            gap: 14px;
             flex-wrap: wrap;
+            gap: 10px;
         }
 
         .footer-links a {
-            color: #c0c0e0;
+            color: #d0d0d0;
+            text-decoration: none;
             font-size: 12px;
         }
 
         .footer-links a:hover {
-            color: #ffffff;
+            text-decoration: underline;
         }
 
-        /* ---------- Responsive ---------- */
-
-        @media (max-width: 900px) {
+        @media (max-width: 880px) {
             .hero {
                 grid-template-columns: 1fr;
-                padding-top: 26px;
+                margin-top: 26px;
             }
-
-            .hero-visual {
+            .hero-right {
                 order: -1;
             }
         }
 
-        @media (max-width: 700px) {
-            .team-roles {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .hero-title {
-                font-size: 28px;
-            }
-
+        @media (max-width: 640px) {
             .nav-inner {
-                padding-inline: 14px;
+                flex-direction: column;
+                align-items: flex-start;
             }
-
-            .hero {
-                padding-inline: 14px;
+            nav ul {
+                width: 100%;
+                justify-content: flex-start;
+                gap: 10px;
             }
-
-            .info-section,
-            .team-section {
-                padding-inline: 14px;
+            .hero h1 {
+                font-size: 26px;
             }
-
-            .info-grid {
+            .three-cols {
                 grid-template-columns: 1fr;
             }
         }
@@ -529,200 +412,191 @@
 <body>
 <div class="page-wrapper">
 
-    <!-- HEADER -->
     <header>
         <div class="nav-inner">
-            <a class="brand" href="index.html">
-                <div class="brand-logo">
+            <div class="brand">
+                <a href="index.html" class="brand-logo-wrapper">
                     <img src="logo.png" alt="Prag Crimelife Logo">
+                </a>
+                <div class="brand-title">
+                    <span>Crimelife FiveM</span>
+                    <strong>Prag Crimelife</strong>
                 </div>
-                <div class="brand-text">
-                    <span>PRAG</span>
-                    <span>CRIMELIFE</span>
-                </div>
-            </a>
-
+            </div>
             <nav>
                 <ul>
+                    <li><a href="index.html">Startseite</a></li>
                     <li><a href="regelwerk.html">Regelwerk</a></li>
                     <li><a href="team.html">Team &amp; Bewerbung</a></li>
                     <li><a href="impressum.html">Impressum</a></li>
-                    <li><a class="nav-cta" href="https://discord.gg/Kac3JbPKCx" target="_blank" rel="noopener">Zum Discord</a></li>
+                    <li><a class="nav-discord-btn" href="https://discord.gg/Kac3JbPKCx" target="_blank" rel="noopener noreferrer">Zum Discord</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- HERO -->
     <main>
+        <!-- HERO -->
         <section class="hero">
-            <div>
-                <div class="hero-kicker">FiveM &bull; Crime & Aim</div>
-                <h1 class="hero-title">
-                    Willkommen bei <span>Prag Crimelife</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Frischer Crimelife-Server mit Fokus auf saubere Fights, klare Regeln und
-                    einer entspannten, aber stabilen Community. Aktuell noch im Aufbau –
-                    sei von Anfang an dabei.
+            <div class="hero-left">
+                <div class="hero-kicker">Willkommen auf Prag Crimelife</div>
+                <h1>Army-Base-Fights, <span>sauberes Aim</span> und klare Regeln.</h1>
+                <p class="hero-sub">
+                    Prag Crimelife ist ein Crimelife-FiveM-Server mit Fokus auf fairen Gunfights,
+                    klaren Schussregeln und einer entspannten, aber strukturierten Community.
+                    Kein Kindergarten, kein unnötiges Drama – einfach sauberer Crime-Content.
                 </p>
 
-                <div class="hero-cta-row">
-                    <a href="https://discord.gg/Kac3JbPKCx" target="_blank" rel="noopener">
-                        <button class="btn-primary">Jetzt Discord joinen</button>
-                    </a>
-
-                    <a href="regelwerk.html">
-                        <button class="btn-ghost">Regelwerk ansehen</button>
-                    </a>
+                <div class="hero-badges">
+                    <div class="badge">⚔ Fokus: Army Base / Crimelife</div>
+                    <div class="badge">🎯 Aim-Training & 1v1-Calls</div>
+                    <div class="badge">🛡 Klare & faire Regelstruktur</div>
+                    <div class="badge">👮 Aktives & erfahrenes Team im Aufbau</div>
                 </div>
 
-                <p class="hero-meta">
-                    <span>Wir suchen aktuell aktiv Teammitglieder:</span> Support, Moderation, Admins,
-                    Management, Developer &amp; Analysten.
+                <div class="hero-buttons">
+                    <a href="regelwerk.html" class="btn btn-primary">Regelwerk ansehen</a>
+                    <a href="team.html" class="btn btn-ghost">Team &amp; Bewerbungen</a>
+                    <a href="https://discord.gg/Kac3JbPKCx" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Direkt zum Discord</a>
+                </div>
+            </div>
+
+            <aside class="hero-right">
+                <h2>Wir suchen aktuell</h2>
+                <p style="font-size:13px;color:#e0e0e0;margin-bottom:10px;">
+                    Du willst von Anfang an mit aufbauen? Das hier sind die Rollen, die wir aktiv suchen:
                 </p>
-            </div>
-
-            <div class="hero-visual">
-                <div class="hero-card">
-                    <div class="hero-card-top">
-                        <div class="hero-card-title">Server Overview</div>
-                        <div class="hero-card-pill">Prag Crimelife</div>
+                <div class="roles-grid">
+                    <div class="role-pill">
+                        <strong>Developer</strong><br>
+                        FiveM / Lua / Scripts, Bugfixes, Performance, Anti-Cheat-Basics.
                     </div>
-
-                    <div class="hero-card-main">
-                        <div class="hero-card-stat">
-                            <div class="hero-card-stat-label">Slots (geplant)</div>
-                            <div class="hero-card-stat-value">128</div>
-                        </div>
-                        <div class="hero-card-stat">
-                            <div class="hero-card-stat-label">Mode</div>
-                            <div class="hero-card-stat-value">Crimelife</div>
-                        </div>
-                        <div class="hero-card-stat">
-                            <div class="hero-card-stat-label">Fokus</div>
-                            <div class="hero-card-stat-value">Aim</div>
-                        </div>
-                        <div class="hero-card-stat">
-                            <div class="hero-card-stat-label">Status</div>
-                            <div class="hero-card-stat-value">Aufbau</div>
-                        </div>
+                    <div class="role-pill">
+                        <strong>Mapper</strong><br>
+                        MLOs, Mapping für Army Base, Trainings-Areas, Performance im Blick.
                     </div>
-
-                    <div class="hero-card-bottom">
-                        <div>Army-Base Fights &bull; klares Regelwerk</div>
-                        <div class="hero-card-badges">
-                            <span class="badge">No Pay2Win</span>
-                            <span class="badge">Team gesucht</span>
-                        </div>
+                    <div class="role-pill">
+                        <strong>Management</strong><br>
+                        Server-Konzept, Teamstruktur, interne Abläufe, Qualitätssicherung.
+                    </div>
+                    <div class="role-pill">
+                        <strong>Projektleitung / stellv. PL</strong><br>
+                        Gesamtverantwortung, Entscheidungen, Kommunikation nach außen.
+                    </div>
+                    <div class="role-pill">
+                        <strong>Analysten &amp; Head-Analyst</strong><br>
+                        Auswertung von Clips, Reports und Fights, objektive Entscheidungen.
+                    </div>
+                    <div class="role-pill">
+                        <strong>Moderatoren &amp; Admins</strong><br>
+                        Ingame-Regelwerk durchsetzen, Tickets bearbeiten, Supports führen.
+                    </div>
+                    <div class="role-pill">
+                        <strong>Supporter</strong><br>
+                        Erster Ansprechpartner für Spieler, kleinere Fälle klären, eskalieren bei Bedarf.
+                    </div>
+                    <div class="role-pill">
+                        <strong>Community-Orga</strong><br>
+                        Events, Trainings, Turniere, Social-Media-Ideen (optional).
                     </div>
                 </div>
-            </div>
+            </aside>
         </section>
 
-        <!-- Kurzinfos -->
-        <section class="info-section">
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3>Fokus auf Fights</h3>
-                    <p>
-                        Klare Calls, faire Regeln und eine Map, die auf Army-Base / Aim-Fights
-                        ausgelegt ist. Kein unnötiger Müll – sauberes, schnelles Gameplay.
-                    </p>
-                </div>
-                <div class="info-card">
-                    <h3>Strukturiertes Team</h3>
-                    <p>
-                        Wir arbeiten mit klaren Rollen und Zuständigkeiten, damit Supportfälle
-                        schnell und ohne Chaos geklärt werden können.
-                    </p>
-                </div>
-                <div class="info-card">
-                    <h3>Transparente Regeln</h3>
-                    <p>
-                        Das komplette Regelwerk liegt auf einer eigenen Seite – übersichtlich,
-                        klar formuliert und jederzeit einsehbar.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Team-Beschreibung -->
-        <section class="team-section">
-            <h2>Was wir im Team suchen</h2>
+        <!-- ABSCHNITT: SERVER INFOS -->
+        <section class="section">
+            <h2>Was dich auf Prag Crimelife erwartet</h2>
             <p>
-                Prag Crimelife ist noch im Aufbau – wir suchen Leute, die wirklich Bock haben,
-                langfristig mit uns an einem stabilen Projekt zu arbeiten. Erfahrung ist nice,
-                aber wichtiger ist uns, dass man zuverlässig ist, vernünftig kommuniziert und
-                keinen Kindergarten veranstaltet.
+                Unser Fokus liegt auf Crimelife, strukturierten Fights und klar kommunizierten Regeln.
+                Keine Abuse-Orgien, keine unklaren Calls – wer hier spielt, weiß genau, woran er ist.
             </p>
 
-            <div class="team-roles">
-                <div class="team-role-card">
-                    <h3>Supporter / Moderatoren</h3>
+            <div class="three-cols">
+                <div class="card">
+                    <h3>Saubere Fights</h3>
                     <ul>
-                        <li>Bearbeiten von Tickets &amp; Ingame-Supportfällen</li>
-                        <li>Dokumentation von Regelverstößen &amp; Beweisen</li>
-                        <li>Neutral bleiben, auch wenn Freunde beteiligt sind</li>
-                        <li>Mindestens grundlegende Kenntnis des Regelwerks</li>
+                        <li>Klare Schusscalls, kein sinnloses RDM.</li>
+                        <li>Army-Base &amp; andere feste Fight-Zonen.</li>
+                        <li>1v1- und Team-Fights zum Aim-Verbessern.</li>
                     </ul>
                 </div>
-
-                <div class="team-role-card">
-                    <h3>Admins &amp; Management</h3>
+                <div class="card">
+                    <h3>Strukturiertes Regelwerk</h3>
                     <ul>
-                        <li>Entscheidung bei komplizierten oder strittigen Fällen</li>
-                        <li>Koordination vom Team &amp; internen Abläufen</li>
-                        <li>Mitwirken an Konzept, Balancing &amp; Server-Entwicklung</li>
-                        <li>Vorerfahrung in ähnlichen Projekten ist ein Plus</li>
+                        <li>Übersichtliches Regelwerk auf eigener Seite.</li>
+                        <li>Transparente Strafen, kein „Würfeln“ im Support.</li>
+                        <li>Alle Regeln jederzeit nachlesbar.</li>
                     </ul>
                 </div>
-
-                <div class="team-role-card">
-                    <h3>Projektleitung &amp; Strategisches Management</h3>
+                <div class="card">
+                    <h3>Team mit Anspruch</h3>
                     <ul>
-                        <li>Langfristige Planung des Projekts Prag Crimelife</li>
-                        <li>Strukturierung der Fraktionen &amp; allgemeinen Richtung</li>
-                        <li>Absprachen mit Developer-Team &amp; Marketing</li>
-                        <li>Nur für Leute, die ernsthaft Verantwortung übernehmen wollen</li>
+                        <li>Wir setzen auf Qualität statt Masse.</li>
+                        <li>Jede Rolle hat klare Aufgaben &amp; Zuständigkeiten.</li>
+                        <li>Interne Struktur für Analysten, Management &amp; PL.</li>
                     </ul>
                 </div>
+            </div>
+        </section>
 
-                <div class="team-role-card">
-                    <h3>Developer, Mapper &amp; Analysten</h3>
+        <!-- ABSCHNITT: TEAM TEASER -->
+        <section class="section">
+            <h2>Teamaufbau – sei von Anfang an dabei</h2>
+            <p>
+                Wir bauen den Server strukturiert von Grund auf auf. Wenn du Bock hast,
+                nicht nur „irgendein Teamler“ zu sein, sondern aktiv am Konzept, an den Strukturen
+                und an der Qualität des Projekts mitzuwirken, bist du bei Prag Crimelife richtig.
+            </p>
+
+            <div class="three-cols">
+                <div class="card">
+                    <h3>Führung &amp; Management</h3>
                     <ul>
-                        <li>FiveM-Scripting, Bugfixing, QoL-Features (Developer)</li>
-                        <li>Optimierte Mappings für Army-Base / Crime-Zonen (Mapper)</li>
-                        <li>Auswertung von Logs, Reports &amp; Balancing-Daten (Analysten)</li>
-                        <li>Sauberer, performanter Code / Mappings sind Pflicht</li>
+                        <li><strong>Projektleitung / stellv. PL:</strong> Planung, Entscheidungen, Außenbild.</li>
+                        <li><strong>Management:</strong> Teamführung, Abläufe, Qualitätskontrolle.</li>
+                        <li><strong>STR-Management:</strong> Strukturen für Strafen &amp; Richtlinien.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Analyse &amp; Gerechtigkeit</h3>
+                    <ul>
+                        <li><strong>Head-Analyst:</strong> koordiniert das Analysten-Team.</li>
+                        <li><strong>Analysten:</strong> schauen Clips neutral, bewerten Fights &amp; Reports.</li>
+                        <li>Ziel: faire Entscheidungen, die nachvollziehbar sind.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Technik &amp; Moderation</h3>
+                    <ul>
+                        <li><strong>Developer:</strong> Scripts, Bugs, Performance, kleine Systeme.</li>
+                        <li><strong>Mapper:</strong> optisch starke, aber performante Locations.</li>
+                        <li><strong>Moderation &amp; Support:</strong> Tickets, Ingame-Regeln, Community.</li>
                     </ul>
                 </div>
             </div>
 
-            <p class="team-note">
-                Wenn du dich wiedererkennst: Bewirb dich über die Seite
-                <strong>&ldquo;Team &amp; Bewerbung&rdquo;</strong> – dort steht genau,
-                welche Infos wir von dir brauchen. Je genauer du schreibst, desto schneller
-                können wir dich einordnen.
-            </p>
+            <div style="margin-top:16px;">
+                <a href="team.html" class="btn btn-primary">Alle Rollen &amp; Bewerbungsinfos ansehen</a>
+            </div>
         </section>
     </main>
 
-    <!-- FOOTER -->
     <footer>
         <div class="footer-inner">
             <div>© Prag Crimelife – Projektleitung Prag Crimelife</div>
             <div class="footer-links">
-                <a href="impressum.html">Impressum</a>
-                <a href="mailto:pragcrimelife@gmail.com">Kontakt</a>
+                <a href="index.html">Startseite</a>
+                <a href="regelwerk.html">Regelwerk</a>
                 <a href="team.html">Team &amp; Bewerbung</a>
+                <a href="impressum.html">Impressum</a>
+                <a href="https://discord.gg/Kac3JbPKCx" target="_blank" rel="noopener noreferrer">Discord</a>
             </div>
         </div>
     </footer>
-
 </div>
 </body>
 </html>
+
 
 
 
