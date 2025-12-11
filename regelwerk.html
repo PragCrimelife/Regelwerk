@@ -1,190 +1,286 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>Prag Crimelife – Regelwerk</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: Arial, sans-serif; background: #05050a; color: #f5f5f5; }
-        a { color: inherit; text-decoration: none; }
-        .page-wrapper { min-height: 100vh; display: flex; flex-direction: column; }
+        /* Gleiche Basis wie auf index.html – nur ohne Hero-Extras */
 
-        /* gleicher Header wie index.html (leicht verkürzt) */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #000 url('background.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #f5f5f5;
+            line-height: 1.5;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at top, rgba(255,0,0,0.18), rgba(0,0,0,0.92));
+            z-index: -1;
+        }
+
+        .page-wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
         header {
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.95), rgba(0,0,0,0.82));
+            backdrop-filter: blur(8px);
             position: sticky;
             top: 0;
-            z-index: 50;
-            background: rgba(5, 5, 10, 0.96);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.06);
+            z-index: 20;
         }
+
         .nav-inner {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 12px 20px;
+            padding: 10px 18px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 14px;
-            flex-wrap: wrap;
+            gap: 24px;
         }
+
         .brand {
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        .brand-logo {
-            width: 42px;
-            height: 42px;
-            border-radius: 12px;
-            background: radial-gradient(circle at 30% 0%, #ff4444, #1a1a1a 55%, #000 100%);
+
+        .brand-logo-wrapper {
+            width: 44px;
+            height: 44px;
+            border-radius: 999px;
+            background: radial-gradient(circle, rgba(255,255,255,0.08), rgba(0,0,0,0.9));
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
-            display:flex;align-items:center;justify-content:center;
         }
-        .brand-logo img { width:100%;height:100%;object-fit:cover; }
-        .brand-text { display:flex;flex-direction:column;line-height:1.1; }
-        .brand-text span:first-child {
-            font-size:15px;letter-spacing:0.25em;text-transform:uppercase;color:#ff3b3b;
+
+        .brand-logo-wrapper img {
+            width: 34px;
+            height: 34px;
+            object-fit: contain;
+            transition: transform 0.25s ease, filter 0.25s ease;
+            filter: drop-shadow(0 0 4px rgba(255,255,255,0.2));
+            animation: glowPulse 3s ease-in-out infinite;
         }
-        .brand-text span:last-child { font-size:18px;font-weight:800;color:#f5f5f5; }
+
+        .brand-logo-wrapper:hover img {
+            transform: scale(1.07);
+            filter: drop-shadow(0 0 10px rgba(255,0,0,0.9));
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { filter: drop-shadow(0 0 4px rgba(255,255,255,0.15)); }
+            50%      { filter: drop-shadow(0 0 10px rgba(255,0,0,0.8)); }
+        }
+
+        .brand-title { display: flex; flex-direction: column; }
+        .brand-title span {
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #ff3b3b;
+        }
+        .brand-title strong {
+            font-size: 20px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
 
         nav ul {
-            list-style:none;
-            display:flex;
-            gap:22px;
-            align-items:center;
-            flex-wrap:wrap;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
         }
+
         nav a {
-            position:relative;
-            font-size:16px;
-            color:#e5e5e5;
-            padding:4px 0;
+            color: #f5f5f5;
+            text-decoration: none;
+            font-size: 15px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+            position: relative;
         }
+
         nav a::after {
-            content:"";
-            position:absolute;
-            left:0;bottom:-3px;
-            width:0;height:2px;
-            background:linear-gradient(90deg,#ff3b3b,#b600ff);
-            border-radius:999px;
-            transition:width 0.2s ease;
-        }
-        nav a:hover { color:#fff; }
-        nav a:hover::after { width:100%; }
-
-        .nav-cta {
-            padding:8px 18px;
-            border-radius:999px;
-            border:1px solid #4d63ff;
-            background:radial-gradient(circle at 0 0,#4d63ff,#141428);
-            color:#fff;
-            font-size:15px;
-            font-weight:600;
+            content: "";
+            position: absolute;
+            left: 14px;
+            right: 14px;
+            bottom: 2px;
+            height: 2px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, rgba(255,0,0,0.8), rgba(255,255,255,0.6));
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.2s ease;
         }
 
-        /* Inhalt */
+        nav a:hover::after { transform: scaleX(1); }
+        nav a:hover {
+            background: rgba(255,255,255,0.05);
+            transform: translateY(-1px);
+        }
+
+        .nav-discord-btn {
+            padding: 8px 16px;
+            border-radius: 999px;
+            border: 1px solid rgba(102,153,255,0.8);
+            background: radial-gradient(circle at top left, rgba(102,153,255,0.35), rgba(0,0,30,0.9));
+            font-weight: 600;
+            box-shadow: 0 0 12px rgba(102,153,255,0.4);
+        }
+
+        .nav-discord-btn:hover {
+            background: radial-gradient(circle at top left, rgba(102,153,255,0.6), rgba(0,0,40,0.95));
+            box-shadow: 0 0 18px rgba(102,153,255,0.7);
+        }
+
         main {
-            flex:1;
-            background: radial-gradient(circle at top,#1a1a26 0%,#05050a 55%,#020206 100%);
+            flex: 1;
         }
 
         .content {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 32px 20px 40px 20px;
+            max-width: 1200px;
+            margin: 28px auto 40px auto;
+            padding: 0 18px 20px 18px;
         }
 
-        h1 {
-            font-size: 26px;
+        .content-header {
+            margin-bottom: 18px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+        }
+
+        .content-header h1 {
+            font-size: 24px;
+            text-transform: uppercase;
             margin-bottom: 6px;
         }
-        .subtitle {
+
+        .content-header p {
             font-size: 14px;
-            color: #c5c5dd;
-            margin-bottom: 22px;
+            color: #d0d0d0;
         }
 
         h2 {
-            font-size: 18px;
+            font-size: 20px;
             margin: 26px 0 10px 0;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: #ffffff;
         }
 
         h3 {
-            font-size: 15px;
-            margin: 16px 0 6px 0;
-            color: #ffeded;
+            font-size: 16px;
+            margin: 18px 0 6px 0;
         }
 
-        ul {
-            margin-left: 18px;
+        section.rules-block {
+            background: rgba(0,0,0,0.85);
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 14px 16px 16px 16px;
+            margin-top: 14px;
+        }
+
+        ul.rule-list {
+            margin-left: 16px;
+            margin-top: 4px;
             font-size: 14px;
-            color: #e0e0f0;
         }
-        li { margin-bottom: 4px; }
 
-        hr {
-            border:none;
-            border-top:1px solid rgba(255,255,255,0.12);
-            margin:26px 0;
+        ul.rule-list li + li {
+            margin-top: 4px;
+        }
+
+        .subnote {
+            font-size: 13px;
+            color: #bcbcbc;
         }
 
         footer {
-            border-top:1px solid rgba(255,255,255,0.06);
-            background:#050509;
-            color:#9090b0;
-            font-size:12px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            background: rgba(0,0,0,0.95);
+            margin-top: auto;
         }
-        .footer-inner {
-            max-width:1100px;
-            margin:0 auto;
-            padding:10px 20px 12px 20px;
-            display:flex;
-            justify-content:space-between;
-            gap:12px;
-            flex-wrap:wrap;
-            align-items:center;
-        }
-        .footer-links {
-            display:flex;
-            gap:14px;
-            flex-wrap:wrap;
-        }
-        .footer-links a { color:#c0c0e0; }
-        .footer-links a:hover { color:#ffffff; }
 
-        @media(max-width:600px){
-            .content{padding-inline:14px;}
-            .nav-inner{padding-inline:14px;}
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 18px 14px 18px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+            color: #b0b0b0;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            color: #d0d0d0;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 640px) {
+            .nav-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav ul {
+                width: 100%;
+                justify-content: flex-start;
+                gap: 10px;
+            }
         }
     </style>
 </head>
 <body>
 <div class="page-wrapper">
-
     <header>
         <div class="nav-inner">
-            <a class="brand" href="index.html">
-                <div class="brand-logo">
+            <div class="brand">
+                <a href="index.html" class="brand-logo-wrapper">
                     <img src="logo.png" alt="Prag Crimelife Logo">
+                </a>
+                <div class="brand-title">
+                    <span>Crimelife FiveM</span>
+                    <strong>Prag Crimelife</strong>
                 </div>
-                <div class="brand-text">
-                    <span>PRAG</span>
-                    <span>CRIMELIFE</span>
-                </div>
-            </a>
-
+            </div>
             <nav>
                 <ul>
+                    <li><a href="index.html">Startseite</a></li>
                     <li><a href="regelwerk.html">Regelwerk</a></li>
                     <li><a href="team.html">Team &amp; Bewerbung</a></li>
                     <li><a href="impressum.html">Impressum</a></li>
-                    <li><a class="nav-cta" href="https://discord.gg/Kac3JbPKCx" target="_blank" rel="noopener">Zum Discord</a></li>
+                    <li><a class="nav-discord-btn" href="https://discord.gg/Kac3JbPKCx" target="_blank" rel="noopener noreferrer">Zum Discord</a></li>
                 </ul>
             </nav>
         </div>
@@ -192,84 +288,197 @@
 
     <main>
         <div class="content">
-            <h1>Regelwerk Prag Crimelife</h1>
-            <p class="subtitle">
-                Dieses Regelwerk gilt für alle Spieler auf unserem FiveM-Server. Mit dem Betreten des Servers
-                akzeptierst du diese Regeln.
-            </p>
+            <div class="content-header">
+                <h1>Regelwerk</h1>
+                <p class="subnote">
+                    Bitte lies dir alle Bereiche sorgfältig durch. Mit dem Betreten des Servers und des Discords
+                    akzeptierst du dieses Regelwerk.
+                </p>
+            </div>
 
-            <!-- DU KANNST HIER DEIN GANZES ALTES REGELWERK EINSETZEN.
-                 Beispiel-Struktur wie vorher: -->
+            <!-- DISCORD -->
+            <h2>Discord-Regelwerk</h2>
+            <section class="rules-block">
+                <h3>1. Allgemeines Verhalten</h3>
+                <ul class="rule-list">
+                    <li>Verhalte dich respektvoll, kein toxisches Verhalten.</li>
+                    <li>Beleidigungen, Drohungen und Provozieren sind untersagt.</li>
+                    <li>Spam, Flooden und Stören von Channels ist verboten.</li>
+                    <li>Teammitglieder werden nicht beleidigt oder angegangen.</li>
+                    <li>Konstruktive Kritik ist erlaubt, persönliche Angriffe nicht.</li>
+                </ul>
 
-            <h2>1. Discord-Regeln</h2>
+                <h3>2. Werbung und Identität</h3>
+                <ul class="rule-list">
+                    <li>Eigen- und Fremdwerbung ist ohne Erlaubnis untersagt.</li>
+                    <li>Unangebrachte Steam/FiveM-/Discord-Namen müssen geändert werden.</li>
+                    <li>Das Ausgeben als Teammitglied oder Fraktionsmitglied ist verboten.</li>
+                </ul>
 
-            <h3>1.1 Allgemeines Verhalten</h3>
-            <ul>
-                <li>Verhalte dich respektvoll, kein toxisches Verhalten.</li>
-                <li>Beleidigungen, Drohungen und Provozieren sind untersagt.</li>
-                <li>Spam oder Channel-Flooding ist verboten.</li>
-                <li>Teammitglieder werden nicht beleidigt oder angegriffen.</li>
-            </ul>
+                <h3>3. Aufnahmen und Beweise</h3>
+                <ul class="rule-list">
+                    <li>Bei bestehender Aufnahmepflicht muss die Spielzeit lückenlos aufgezeichnet werden.</li>
+                    <li>Beweismaterial darf nicht manipuliert oder aus dem Zusammenhang gerissen werden.</li>
+                </ul>
+            </section>
 
-            <h3>1.2 Werbung &amp; Identität</h3>
-            <ul>
-                <li>Eigen- und Fremdwerbung ist ohne Erlaubnis untersagt.</li>
-                <li>Unangebrachte Namen können geändert oder gebannt werden.</li>
-                <li>Das Ausgeben als Team- oder Fraktionsmitglied ist verboten.</li>
-            </ul>
+            <!-- INGAME -->
+            <h2>Ingame-Regelwerk</h2>
+            <section class="rules-block">
+                <h3>2.1 Schusscall</h3>
+                <ul class="rule-list">
+                    <li>Vor dem Schießen muss ein klarer Schusscall gegeben werden.</li>
+                    <li>Der Gegner muss den Call wahrnehmen können.</li>
+                    <li>Schießen ohne Schusscall wird als RDM gewertet.</li>
+                    <li>Der genaue Wortlaut ist egal, Hauptsache eindeutig.</li>
+                    <li>Ein Schusscall gilt 2 Minuten, Reaktionszeit mindestens 2 Sekunden.</li>
+                </ul>
 
-            <hr>
+                <h3>2.2 Grounding</h3>
+                <ul class="rule-list">
+                    <li>Grounding ist verboten.</li>
+                    <li>Wer an einem aktiven Schusscall beteiligt ist, muss im Sichtfeld der gegnerischen Partei bleiben.</li>
+                </ul>
 
-            <h2>2. Ingame-Regeln</h2>
+                <h3>2.3 Gruppierungen und Kleidung</h3>
+                <ul class="rule-list">
+                    <li>Zivilisten dürfen in maximal 3er-Gruppen agieren.</li>
+                    <li>An bestimmten Orten (z. B. Observatorium, Hafen, Sandy Airport, Cayo Perico, MD) sind nur 2er-Gruppen erlaubt.</li>
+                    <li>Es müssen mindestens drei Erkennungsmerkmale getragen werden (z. B. Torso, Hose, Maske).</li>
+                    <li>Calliou-Outfits und ähnliche Troll-Outfits sind nicht erlaubt.</li>
+                    <li>Jeder Spieler muss einen eigenen, individuellen Charakter erstellen.</li>
+                </ul>
 
-            <h3>2.1 Schusscall</h3>
-            <ul>
-                <li>Vor dem Schießen muss ein klarer Schusscall gegeben werden.</li>
-                <li>Schießen ohne Schusscall wird als RDM gewertet.</li>
-                <li>Ein Call gilt für 2 Minuten, Reaktionszeit mind. 2 Sekunden.</li>
-            </ul>
+                <h3>2.4 Fraktionsbezug</h3>
+                <ul class="rule-list">
+                    <li>Das Tragen von Fraktionskleidung oder -westen ohne Zugehörigkeit ist verboten.</li>
+                    <li>Mit Betreten eines fremden Hood-/Fraktionsgeländes erhält die Fraktion einen automatischen Schusscall.</li>
+                </ul>
 
-            <h3>2.2 Grounding / Dritt-Partei</h3>
-            <ul>
-                <li>Grounding ist verboten.</li>
-                <li>Wer keinen Bezug zur Situation hat, mischt sich nicht ein.</li>
-            </ul>
+                <h3>2.5 Dritt-Partei-Regel</h3>
+                <ul class="rule-list">
+                    <li>Wer keinen Bezug zu einer Situation hat, mischt sich nicht ein.</li>
+                    <li>Einmischen in fremde Konflikte gilt als Dritt-Partei und ist untersagt.</li>
+                </ul>
 
-            <h3>2.3 Safezones</h3>
-            <ul>
-                <li>Flüchten in Safezones oder dort campen ist verboten.</li>
-                <li>Aus Safezones heraus zu kämpfen ist ebenfalls untersagt.</li>
-            </ul>
+                <h3>2.6 Multicalling</h3>
+                <ul class="rule-list">
+                    <li>Mehreren unabhängigen Spielern gleichzeitig einen Schusscall zu geben (Multicalling) ist verboten.</li>
+                </ul>
 
-            <hr>
+                <h3>2.7 Safezones</h3>
+                <ul class="rule-list">
+                    <li>Flüchten in Safezones ist verboten.</li>
+                    <li>Camping in oder direkt an Safezones ist untersagt.</li>
+                    <li>Auch von außerhalb aus Safezones heraus zu kämpfen ist nicht gestattet.</li>
+                    <li>Safezones sind u. a. grün markierte Kreise und Bewerbungsbereiche.</li>
+                </ul>
 
-            <h2>3. Support-Regeln</h2>
-            <ul>
-                <li>Regelverstöße werden mit Videobeweis gemeldet.</li>
-                <li>Supportgespräche dürfen nur mit Erlaubnis aufgenommen werden.</li>
-                <li>Der zuständige Supporter entscheidet über den Fall.</li>
-            </ul>
+                <h3>2.8 Hände oben</h3>
+                <ul class="rule-list">
+                    <li>Wer die Hände oben hat, darf nicht gecallt oder beschossen werden.</li>
+                </ul>
+            </section>
 
-            <hr>
+            <!-- SUPPORT -->
+            <h2>Support-Regelwerk</h2>
+            <section class="rules-block">
+                <h3>3.0 Beweise</h3>
+                <ul class="rule-list">
+                    <li>Regelverstöße müssen mit Videobeweis gemeldet werden.</li>
+                    <li>Der Videobeweis muss die gesamte relevante Situation sowie Ton enthalten.</li>
+                </ul>
 
-            <h2>4. Blacklisted Wörter</h2>
-            <ul>
-                <li>Schwer beleidigende, rassistische, sexistische oder homophobe Ausdrücke sind strikt verboten.</li>
-                <li>Umgehungen über andere Sprachen fallen ebenfalls darunter.</li>
-            </ul>
+                <h3>3.1 Supportgespräche</h3>
+                <ul class="rule-list">
+                    <li>Supportgespräche dürfen nicht ohne Erlaubnis aufgenommen oder gestreamt werden.</li>
+                    <li>Ausnahme nur mit ausdrücklicher Genehmigung des High-Teams oder wenn das Gespräch selbst Beweis ist.</li>
+                </ul>
 
-            <hr>
+                <h3>3.2 Entscheidungen</h3>
+                <ul class="rule-list">
+                    <li>Der zuständige Supporter entscheidet über den Fall.</li>
+                    <li>Über das Ticketsystem im Discord kann Widerspruch eingelegt werden.</li>
+                </ul>
 
-            <h2>5. Fraktionen &amp; Gangwar</h2>
-            <ul>
-                <li>Max. Fraktionsgröße, Erkennungsmerkmale und weitere Details werden im Discord bekanntgegeben.</li>
-                <li>Server-Regeln gelten vollumfänglich auch im Gangwar.</li>
-            </ul>
+                <h3>3.3 Fraktionsfälle</h3>
+                <ul class="rule-list">
+                    <li>Bei Supportfällen mit Fraktionen muss die Fraktionsleitung (und ggf. Verwaltung) in den Support kommen.</li>
+                    <li>Clips und Beweise sind vorbereitet mitzubringen.</li>
+                </ul>
 
-            <p style="font-size:12px;color:#9797b8;margin-top:22px;">
-                Hinweis: Dieses Regelwerk kann jederzeit angepasst werden. Änderungen werden im Discord
-                bekanntgegeben. Unwissenheit schützt nicht vor einer Strafe.
-            </p>
+                <h3>3.4 Kontakt zum Team</h3>
+                <ul class="rule-list">
+                    <li>Teammitglieder werden nicht privat für Support angeschrieben.</li>
+                    <li>Support läuft ausschließlich über den offiziellen Discord und das Ticketsystem.</li>
+                </ul>
+            </section>
+
+            <!-- TROLLING / BAITING -->
+            <h2>Trolling / Baiting</h2>
+            <section class="rules-block">
+                <h3>4.1 Provokation</h3>
+                <ul class="rule-list">
+                    <li>Bewusstes und unbegründetes Provozieren von Spielern oder Fraktionen ist verboten.</li>
+                </ul>
+
+                <h3>4.2 Namen</h3>
+                <ul class="rule-list">
+                    <li>Unangebrachte Steam-/FiveM-/Discord-Namen können geändert oder gesperrt werden.</li>
+                </ul>
+
+                <h3>4.3 Fake-Mitgliedschaft</h3>
+                <ul class="rule-list">
+                    <li>Sich als Fraktionsmitglied auszugeben, obwohl man es nicht ist, ist strikt untersagt.</li>
+                </ul>
+            </section>
+
+            <!-- BLACKLIST -->
+            <h2>Blacklisted Wörter</h2>
+            <section class="rules-block">
+                <ul class="rule-list">
+                    <li>Schwer beleidigende, erniedrigende oder herabwürdigende Ausdrücke sind verboten.</li>
+                    <li>Sexistische, rassistische, homophobe oder allgemein diskriminierende Formulierungen sind untersagt.</li>
+                    <li>Angriffe auf andere wegen Geschlecht, Herkunft, Sexualität, Religion oder persönlicher Merkmale sind nicht erlaubt.</li>
+                    <li>Beleidigungen in anderen Sprachen oder TOS-Umgehungen fallen ebenfalls darunter.</li>
+                </ul>
+            </section>
+
+            <!-- FRAKTIONEN -->
+            <h2>Fraktionsregelwerk</h2>
+            <section class="rules-block">
+                <h3>Allgemeines</h3>
+                <ul class="rule-list">
+                    <li>Maximal 25 Mitglieder pro Fraktion, mindestens 10 aktive Spieler.</li>
+                    <li>Jede Fraktion benötigt mindestens zwei klare Erkennungsmerkmale.</li>
+                    <li>Bewerbungsphasen werden serverseitig bekanntgegeben.</li>
+                    <li>Regelverstöße von zwei oder mehr Fraktionsmitgliedern können Strafen für die gesamte Fraktion nach sich ziehen.</li>
+                    <li>Maximal 3 Verwarnungen, diese verfallen nach 7 Tagen.</li>
+                    <li>Maximal 3 Leader, nur ein Leaderwechsel innerhalb eines Zeitraums erlaubt.</li>
+                    <li>Report-Clips dürfen maximal 24 Stunden alt sein.</li>
+                    <li>Support-Flucht ins Lager ist verboten.</li>
+                    <li>Maximal 3 Gangwar-Punkte gleichzeitig.</li>
+                    <li>Den Kampf absichtlich zu verlassen ist verboten.</li>
+                    <li>Server-Regeln gelten vollumfänglich auch im Gangwar.</li>
+                </ul>
+            </section>
+
+            <!-- GANGWAR -->
+            <h2>Gangwar-Regeln</h2>
+            <section class="rules-block">
+                <ul class="rule-list">
+                    <li>Zone betreten bedeutet: drin bleiben, kein konstantes Rein/Raus.</li>
+                    <li>Dächer- und Spawncamping sind verboten.</li>
+                    <li>Der Verteidiger muss anfahren.</li>
+                    <li>Mauerbruch ist nur erlaubt, wenn sich dahinter keine Person befindet.</li>
+                    <li>Keine Nahkampfwaffen.</li>
+                    <li>Left-/Right-Peeks maximal 3 Sekunden.</li>
+                    <li>Keine Kills außerhalb der Gangwar-Zone.</li>
+                    <li>Gegner dürfen nicht absichtlich gerammt oder überfahren werden.</li>
+                    <li>Teilnahme am laufenden Gangwar ist Pflicht, kein grundloses Quitten.</li>
+                    <li>Beleidigungen sind strikt untersagt.</li>
+                </ul>
+            </section>
         </div>
     </main>
 
@@ -277,13 +486,15 @@
         <div class="footer-inner">
             <div>© Prag Crimelife – Projektleitung Prag Crimelife</div>
             <div class="footer-links">
-                <a href="impressum.html">Impressum</a>
-                <a href="mailto:pragcrimelife@gmail.com">Kontakt</a>
+                <a href="index.html">Startseite</a>
+                <a href="regelwerk.html">Regelwerk</a>
                 <a href="team.html">Team &amp; Bewerbung</a>
+                <a href="impressum.html">Impressum</a>
+                <a href="https://discord.gg/Kac3JbPKCx" target="_blank" rel="noopener noreferrer">Discord</a>
             </div>
         </div>
     </footer>
-
 </div>
 </body>
 </html>
+
