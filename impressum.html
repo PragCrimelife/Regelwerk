@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {margin:0; padding:0; box-sizing:border-box;}
 
         body {
             font-family: Arial, sans-serif;
@@ -14,173 +14,174 @@
             background-size: cover;
             color: #f5f5f5;
             line-height: 1.5;
-            min-height: 100vh;
-            position: relative;
         }
 
         body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background: radial-gradient(circle at top, rgba(255,0,0,0.18), rgba(0,0,0,0.92));
-            z-index: -1;
+            content:"";
+            position:fixed;
+            inset:0;
+            background: rgba(0,0,0,0.85);
+            z-index:-1;
         }
 
-        .page-wrapper { min-height: 100vh; display: flex; flex-direction: column; }
-
-        /* Header */
         header {
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-            background: rgba(0,0,0,0.85);
+            background: rgba(0,0,0,0.9);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
             backdrop-filter: blur(8px);
             position: sticky;
             top: 0;
-            z-index: 20;
+            z-index: 10;
         }
 
         .nav-inner {
             max-width: 1200px;
-            margin: 0 auto;
-            padding: 10px 18px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 24px;
-        }
-
-        .brand { display: flex; align-items: center; gap: 10px; }
-        .brand-logo-wrapper {
-            width: 44px; height: 44px;
-            border-radius: 999px;
-            background: radial-gradient(circle, rgba(255,255,255,0.08), rgba(0,0,0,0.9));
-            display: flex; align-items: center; justify-content: center;
-            overflow: hidden;
-        }
-
-        .brand-logo-wrapper img {
-            width: 34px; height: 34px; object-fit: contain;
-            transition: .25s ease;
-            animation: glowPulse 3s infinite ease-in-out;
-        }
-
-        @keyframes glowPulse {
-            0%,100% { filter: drop-shadow(0 0 4px rgba(255,255,255,0.2)); }
-            50% { filter: drop-shadow(0 0 10px rgba(255,0,0,0.7)); }
-        }
-
-        .brand-title { display: flex; flex-direction: column; }
-        .brand-title span {
-            font-size: 13px; letter-spacing: 2px;
-            color: #ff3b3b; text-transform: uppercase;
-        }
-        .brand-title strong {
-            font-size: 20px; letter-spacing: 4px; text-transform: uppercase;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 18px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: #fff; text-decoration: none; font-size: 15px;
-            padding: 6px 10px;
-            position: relative;
-            transition: .2s ease;
-        }
-
-        nav a::after {
-            content: "";
-            position: absolute;
-            left: 10px; right: 10px; bottom: 2px;
-            height: 2px;
-            background: linear-gradient(90deg, red, white);
-            transform: scaleX(0);
-            transition: .2s ease;
-        }
-
-        nav a:hover::after { transform: scaleX(1); }
-        nav a:hover { transform: translateY(-1px); }
-
-        .nav-discord-btn {
-            padding: 8px 16px;
-            border-radius: 999px;
-            background: rgba(0,60,255,0.4);
-            border: 1px solid rgba(120,160,255,0.6);
-            box-shadow: 0 0 12px rgba(120,160,255,0.3);
-        }
-
-        /* Content */
-        .content {
-            max-width: 1200px;
-            margin: 30px auto 40px auto;
-            padding: 0 18px;
-        }
-
-        h1 {
-            font-size: 26px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        p { font-size: 15px; margin-bottom: 10px; }
-
-        details {
-            background: rgba(0,0,0,0.85);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 14px;
-            padding: 14px 16px;
-            margin-top: 16px;
-        }
-
-        summary {
-            cursor: pointer;
-            font-size: 17px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        footer {
-            border-top: 1px solid rgba(255,255,255,0.06);
-            background: rgba(0,0,0,0.95);
-        }
-
-        .footer-inner {
-            max-width: 1200px;
-            margin: 0 auto;
+            margin: auto;
             padding: 12px 18px;
             display: flex;
             justify-content: space-between;
-            flex-wrap: wrap;
-            font-size: 12px;
-            color: #c0c0c0;
+            align-items: center;
         }
 
-        .footer-links {
-            display: flex;
-            gap: 12px;
+        .brand {
+            display:flex;
+            align-items:center;
+            gap:12px;
+            text-decoration:none;
+            color:white;
         }
 
+        .brand-logo-wrapper {
+            width:50px;
+            height:50px;
+            border-radius:999px;
+            background:rgba(255,255,255,0.07);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .brand-logo-wrapper img {
+            width:38px;
+            height:38px;
+        }
+
+        .brand-title span {
+            font-size:12px;
+            color:#ff3b3b;
+            letter-spacing:2px;
+        }
+
+        .brand-title strong {
+            font-size:20px;
+            letter-spacing:1px;
+        }
+
+        nav ul {
+            list-style:none;
+            display:flex;
+            gap:18px;
+        }
+
+        nav a {
+            color:#fff;
+            text-decoration:none;
+            font-size:15px;
+            position:relative;
+        }
+
+        nav a:hover {
+            color:#ff3b3b;
+        }
+
+        .btn-discord {
+            padding:7px 15px;
+            background: rgba(0,60,255,0.4);
+            border:1px solid rgba(120,160,255,0.6);
+            border-radius:999px;
+            text-decoration:none;
+            color:#fff;
+        }
+
+        main {
+            max-width:1200px;
+            margin:40px auto;
+            padding:0 18px 60px 18px;
+        }
+
+        h1 {
+            font-size:28px;
+            margin-bottom:10px;
+        }
+
+        .info-box {
+            margin-top:20px;
+            padding:18px;
+            background:rgba(0,0,0,0.7);
+            border-radius:10px;
+            border:1px solid rgba(255,255,255,0.1);
+        }
+
+        details {
+            margin-top:18px;
+            background:rgba(0,0,0,0.6);
+            border:1px solid rgba(255,255,255,0.1);
+            padding:14px;
+            border-radius:10px;
+        }
+
+        details summary {
+            cursor:pointer;
+            font-weight:600;
+            font-size:16px;
+            padding-bottom:6px;
+        }
+
+        details p {
+            margin-top:10px;
+            font-size:14px;
+            color:#dddddd;
+        }
+
+        footer {
+            background: rgba(0,0,0,0.9);
+            padding:14px 18px;
+            border-top:1px solid rgba(255,255,255,0.08);
+        }
+
+        .footer-inner {
+            max-width:1200px;
+            margin:auto;
+            display:flex;
+            justify-content:space-between;
+            font-size:13px;
+            color:#c7c7c7;
+        }
+
+        .footer-links a {
+            color:#c7c7c7;
+            margin-left:12px;
+            text-decoration:none;
+        }
+
+        .footer-links a:hover {
+            color:white;
+        }
     </style>
 </head>
 
 <body>
-<div class="page-wrapper">
 
 <header>
     <div class="nav-inner">
-        <div class="brand">
-            <a href="index.html" class="brand-logo-wrapper">
-                <img src="logo.png">
-            </a>
-            <div class="brand-title">
-                <span>Crimelife FiveM</span>
-                <strong>Prag Crimelife</strong>
+        <a class="brand" href="index.html">
+            <div class="brand-logo-wrapper">
+                <img src="logo.png" alt="Logo">
             </div>
-        </div>
+            <div class="brand-title">
+                <span>CRIMELIFE FIVEM</span>
+                <strong>PRAG CRIMELIFE</strong>
+            </div>
+        </a>
 
         <nav>
             <ul>
@@ -188,38 +189,67 @@
                 <li><a href="regelwerk.html">Regelwerk</a></li>
                 <li><a href="team.html">Team & Bewerbung</a></li>
                 <li><a href="impressum.html">Impressum</a></li>
-                <li><a class="nav-discord-btn" href="https://discord.gg/Kac3JbPKCx" target="_blank">Discord</a></li>
+                <li><a class="btn-discord" href="https://discord.gg/Kac3JbPKCx" target="_blank">Discord</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
-<main>
-<div class="content">
 
+<main>
     <h1>Impressum</h1>
 
-    <p>
-        Projektleitung: <strong>Prag Crimelife</strong><br>
-        Kontakt-Mail: <strong>pragcrimelife@gmail.com</strong>
-    </p>
+    <div class="info-box">
+        <p><strong>Projektleitung:</strong> Prag Crimelife</p>
+        <p><strong>Kontakt-Mail:</strong> pragcrimelife@gmail.com</p>
+    </div>
 
+    <div class="info-box">
+        <p>
+            Dieses Impressum gilt für die FiveM-Community „Prag Crimelife“ sowie die zugehörige Website.
+            Obwohl wir kein kommerzielles Unternehmen sind, stellen wir die gesetzlichen Informationen
+            gemäß Transparenz- und Informationspflichten zur Verfügung.
+        </p>
+    </div>
+
+    <!-- AUSKLAPPBARER RECHTSTEIL -->
     <details>
         <summary>Rechtliche Hinweise anzeigen</summary>
-        <p style="margin-top:10px;">
-            Dies ist ein nicht-kommerzielles FiveM-Projekt.  
-            Wir stehen in keinem Zusammenhang mit Take-Two Interactive oder Rockstar Games.
+
+        <p><strong>Haftungsausschluss:</strong><br>
+            Prag Crimelife ist ein nicht-kommerzielles Community-Projekt.  
+            Es besteht keine Gewinnerzielungsabsicht, kein Verkauf und kein Handel.
+            Alle Inhalte dienen ausschließlich dem Roleplay-Spielbetrieb.
         </p>
-        <p>
-            Inhalte dieser Seite dürfen ohne Zustimmung nicht kopiert oder weiterverbreitet werden.
+
+        <p><strong>Haftung für Inhalte:</strong><br>
+            Wir übernehmen keine Verantwortung für Inhalte, die durch Spieler
+            im Roleplay oder auf Discord erstellt werden. Regelverstöße werden nach
+            internen Community-Richtlinien behandelt.
         </p>
-        <p>
-            Jegliche Verstöße gegen Nutzungsbedingungen von FiveM oder GTA V liegen in der Verantwortung des jeweiligen Spielers.
+
+        <p><strong>Haftung für externe Links:</strong><br>
+            Externe Links (z. B. Discord) liegen nicht in unserer Verantwortung.  
+            Für diese Inhalte sind ausschließlich die jeweiligen Betreiber zuständig.
         </p>
+
+        <p><strong>Urheberrecht:</strong><br>
+            Grafiken, Logos und Texte sind Eigentum von Prag Crimelife
+            oder deren jeweiligen Erstellern.  
+            Unautorisierte Nutzung ist nicht erlaubt.
+        </p>
+
+        <p><strong>Cookies & Datenschutz:</strong><br>
+            Unsere Website verwendet **keine Cookies**, kein Tracking und keine Analyseprogramme.  
+            Es werden **keine personenbezogenen Daten gespeichert**, außer jene,
+            die der Nutzer aktiv und freiwillig über das Bewerbungsformular übermittelt.
+            Diese Daten werden ausschließlich zur Bearbeitung der Bewerbung genutzt.
+        </p>
+
     </details>
 
-</div>
 </main>
+
 
 <footer>
     <div class="footer-inner">
@@ -227,16 +257,16 @@
         <div class="footer-links">
             <a href="index.html">Startseite</a>
             <a href="regelwerk.html">Regelwerk</a>
-            <a href="team.html">Team & Bewerbung</a>
+            <a href="team.html">Team</a>
             <a href="impressum.html">Impressum</a>
-            <a href="https://discord.gg/Kac3JbPKCx" target="_blank">Discord</a>
         </div>
     </div>
 </footer>
 
-</div>
 </body>
 </html>
+
+
 
 
 
