@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Prag Crimelife – Team & Bewerbung</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -14,114 +13,111 @@
             background-size: cover;
             color: #f5f5f5;
             line-height: 1.5;
+            min-height: 100vh;
+            position: relative;
         }
 
         body::before {
             content: "";
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.85);
+            background: radial-gradient(circle at top, rgba(255,0,0,0.18), rgba(0,0,0,0.92));
             z-index: -1;
         }
 
+        .page-wrapper { min-height: 100vh; display: flex; flex-direction: column; }
+
+        /* Header / Navigation */
         header {
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
             position: sticky;
             top: 0;
             z-index: 20;
-            background: rgba(0,0,0,0.9);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid #ff1e1e33;
         }
 
         .nav-inner {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 18px 20px;
+            padding: 10px 18px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 16px;
+            gap: 24px;
         }
 
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            text-decoration: none;
-            color: #fff;
-            font-weight: 800;
-            font-size: 26px;
-            letter-spacing: 2px;
+        .brand { display: flex; align-items: center; gap: 10px; }
+        .brand-logo-wrapper {
+            width: 44px; height: 44px;
+            border-radius: 999px;
+            background: radial-gradient(circle, rgba(255,255,255,0.08), rgba(0,0,0,0.9));
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+        }
+
+        .brand-logo-wrapper img {
+            width: 34px; height: 34px; object-fit: contain;
+            transition: .25s ease;
+            animation: glowPulse 3s infinite ease-in-out;
+        }
+
+        @keyframes glowPulse {
+            0%,100% { filter: drop-shadow(0 0 4px rgba(255,255,255,0.2)); }
+            50% { filter: drop-shadow(0 0 10px rgba(255,0,0,0.7)); }
+        }
+
+        .brand-title { display: flex; flex-direction: column; }
+        .brand-title span {
+            font-size: 13px; letter-spacing: 2px;
+            color: #ff3b3b;
             text-transform: uppercase;
-            animation: logoPulse 3s ease-in-out infinite;
-            transition: 0.25s ease;
         }
-
-        .brand .red { color: #ff2b2b; }
-
-        .brand:hover {
-            letter-spacing: 3px;
-            transform: scale(1.03);
-            filter: drop-shadow(0 0 10px #ff2b2b);
-        }
-
-        .logo-img {
-            height: 60px;
-            width: auto;
-            filter: drop-shadow(0 0 6px #000);
-            animation: logoGlow 2.4s ease-in-out infinite;
-            transition: 0.25s ease;
-        }
-
-        .brand:hover .logo-img {
-            transform: scale(1.05);
-            filter: drop-shadow(0 0 22px #ff2b2b);
+        .brand-title strong {
+            font-size: 20px; letter-spacing: 4px; text-transform: uppercase;
         }
 
         nav ul {
-            display: flex;
             list-style: none;
-            gap: 14px;
+            display: flex;
+            gap: 18px;
+            align-items: center;
             flex-wrap: wrap;
-            justify-content: flex-end;
         }
-
         nav a {
-            color: #f5f5f5;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 600;
-            padding: 10px 14px;
+            color: #fff; text-decoration: none; font-size: 15px;
+            padding: 6px 10px;
+            position: relative;
+            transition: .2s ease;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            left: 10px; right: 10px; bottom: 2px;
+            height: 2px; border-radius: 999px;
+            background: linear-gradient(90deg, red, white);
+            transform: scaleX(0);
+            transition: .2s ease;
+        }
+
+        nav a:hover::after { transform: scaleX(1); }
+        nav a:hover { transform: translateY(-1px); }
+
+        .nav-discord-btn {
+            padding: 8px 16px;
             border-radius: 999px;
-            border: 1px solid transparent;
-            transition: 0.15s ease;
-            white-space: nowrap;
+            background: rgba(0,60,255,0.4);
+            border: 1px solid rgba(120,160,255,0.6);
+            box-shadow: 0 0 12px rgba(120,160,255,0.3);
         }
 
-        nav a:hover {
-            border-color: #ff2b2b;
-            background: #ff2b2b22;
-        }
+        main { flex: 1; }
 
-        .btn-discord {
-            border-color: #556bff;
-            background: #556bff33;
-            font-size: 16px;
-            font-weight: 700;
-            padding: 10px 18px;
-        }
-
-        .btn-discord:hover {
-            background: #556bff55;
-        }
-
-        .page-wrapper {
-            max-width: 1100px;
-            margin: 80px auto 40px auto;
-            padding: 24px 16px 40px 16px;
-            background: rgba(0,0,0,0.82);
-            border-radius: 18px;
-            box-shadow: 0 0 40px rgba(0,0,0,0.9);
+        .content {
+            max-width: 1200px;
+            margin: 30px auto 40px auto;
+            padding: 0 18px;
         }
 
         h1 {
@@ -131,378 +127,213 @@
         }
 
         .subnote {
-            font-size: 13px;
-            color: #bbbbbb;
-            margin-bottom: 18px;
+            font-size: 14px; margin-bottom: 16px; color: #c0c0c0;
         }
 
         h2 {
             font-size: 20px;
-            margin: 26px 0 10px 0;
+            margin: 24px 0 10px 0;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            border-left: 3px solid #ff2b2b;
-            padding-left: 10px;
-        }
-
-        h3 {
-            font-size: 17px;
-            margin: 10px 0 4px 0;
-        }
-
-        .layout {
-            display: grid;
-            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
-            gap: 32px;
-            margin-top: 10px;
         }
 
         .role-box {
-            background: rgba(5,5,5,0.75);
+            background: rgba(0,0,0,0.85);
+            border: 1px solid rgba(255,255,255,0.1);
             border-radius: 14px;
-            padding: 16px 18px 18px 18px;
-            border: 1px solid #222;
+            padding: 16px;
+            margin-bottom: 16px;
         }
 
-        .role-box h2 {
-            border-left-color: transparent;
-            padding-left: 0;
-            margin-top: 0;
-        }
+        .role-box h3 { margin-bottom: 6px; font-size: 16px; }
+        .role-box p { font-size: 14px; color: #d8d8d8; }
 
-        .role-list {
-            margin-left: 16px;
-            margin-top: 4px;
-        }
-
-        .role-list li { margin-bottom: 4px; }
-
-        .tag {
-            display: inline-block;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            padding: 2px 8px;
-            border-radius: 999px;
-            border: 1px solid #444;
-            margin-bottom: 8px;
-            color: #cccccc;
-        }
-
-        .tag-staff { border-color: #ff2b2b; color: #ffb3b3; }
-        .tag-tech  { border-color: #4cafef; color: #b3e0ff; }
-        .tag-lead  { border-color: #ffc400; color: #ffe9a6; }
-
-        .application-form {
-            margin-top: 10px;
-            display: grid;
-            gap: 10px;
-        }
-
-        .field-group {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        label { font-size: 14px; }
-
-        input, select, textarea {
-            background: #111;
-            border: 1px solid #333;
-            border-radius: 6px;
-            padding: 8px 10px;
-            color: #f5f5f5;
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-        }
-
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: #ff2b2b;
+        .apply-box {
+            background: rgba(0,0,0,0.85);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 14px;
+            padding: 16px;
+            margin-top: 14px;
         }
 
         textarea {
-            min-height: 90px;
-            resize: vertical;
+            width: 100%;
+            height: 280px;
+            background: rgba(0,0,0,0.7);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 10px;
+            padding: 10px;
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+            resize: none;
         }
 
-        .hint {
-            font-size: 12px;
-            color: #aaaaaa;
-        }
-
-        .btn-submit {
-            margin-top: 8px;
-            padding: 10px 16px;
+        .copy-btn {
+            margin-top: 10px;
+            padding: 10px 18px;
             border-radius: 999px;
             border: none;
-            background: #ff2b2b;
-            color: #fff;
-            font-weight: 600;
-            font-size: 14px;
+            background: linear-gradient(135deg, #ff3b3b, #ff7a59);
+            color: #000;
+            font-weight: 700;
             cursor: pointer;
-            transition: 0.15s ease;
-            justify-self: flex-start;
+            box-shadow: 0 0 14px rgba(255,59,59,0.5);
         }
 
-        .btn-submit:hover {
-            background: #ff4949;
+        .copy-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 0 18px rgba(255,59,59,0.9);
         }
 
         footer {
-            margin-top: 24px;
-            font-size: 13px;
-            color: #aaaaaa;
-            border-top: 1px solid #333;
-            padding-top: 12px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            background: rgba(0,0,0,0.95);
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 18px;
             display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
             justify-content: space-between;
+            flex-wrap: wrap;
+            font-size: 12px;
+            color: #c0c0c0;
         }
 
-        footer a {
-            color: #f5f5f5;
-            text-decoration: none;
+        .footer-links {
+            display: flex;
+            gap: 12px;
         }
 
-        footer a:hover { text-decoration: underline; }
-
-        @keyframes logoGlow {
-            0% {
-                filter: drop-shadow(0 0 4px #000) brightness(1);
-            }
-            50% {
-                filter: drop-shadow(0 0 18px #ff2b2b) brightness(1.2);
-            }
-            100% {
-                filter: drop-shadow(0 0 4px #000) brightness(1);
-            }
-        }
-
-        @keyframes logoPulse {
-            0% {
-                letter-spacing: 2px;
-                transform: translateY(0);
-            }
-            50% {
-                letter-spacing: 3px;
-                transform: translateY(-1px);
-            }
-            100% {
-                letter-spacing: 2px;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 900px) {
-            .layout {
-                grid-template-columns: 1fr;
-            }
-            .nav-inner {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            nav ul { justify-content: flex-start; }
-        }
-
-        @media (max-width: 700px) {
-            h1 { font-size: 22px; }
-        }
     </style>
+
+    <script>
+        function copyText() {
+            const textarea = document.getElementById("bewerbungText");
+            textarea.select();
+            textarea.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(textarea.value);
+            alert("Bewerbungstext wurde kopiert.");
+        }
+    </script>
 </head>
+
 <body>
+<div class="page-wrapper">
 
 <header>
     <div class="nav-inner">
-        <a href="index.html" class="brand">
-            <img src="logo.png" alt="Prag Crimelife Logo" class="logo-img">
-            <span><span class="red">PRAG</span> CRIMELIFE</span>
-        </a>
+        <div class="brand">
+            <a href="index.html" class="brand-logo-wrapper">
+                <img src="logo.png">
+            </a>
+            <div class="brand-title">
+                <span>Crimelife FiveM</span>
+                <strong>Prag Crimelife</strong>
+            </div>
+        </div>
+
         <nav>
             <ul>
-                <li><a href="index.html#discord-regeln">Discord</a></li>
-                <li><a href="index.html#ingame-regeln">Ingame</a></li>
-                <li><a href="index.html#support-regeln">Support</a></li>
-                <li><a href="index.html#gangwar-regeln">Gangwar</a></li>
-                <li><a href="team.html">Team &amp; Bewerbung</a></li>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="regelwerk.html">Regelwerk</a></li>
+                <li><a href="team.html">Team & Bewerbung</a></li>
                 <li><a href="impressum.html">Impressum</a></li>
-                <li><a class="btn-discord" href="https://discord.gg/Kac3JbPKCx" target="_blank" rel="noopener">Zum Discord</a></li>
+                <li><a class="nav-discord-btn" href="https://discord.gg/Kac3JbPKCx" target="_blank">Discord</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
-<div class="page-wrapper">
+<main>
+<div class="content">
+
     <h1>Team &amp; Bewerbung</h1>
-    <p class="subnote">
-        Prag Crimelife wird gerade von Grund auf aufgebaut.  
-        Wir suchen aktive Leute, die langfristig Bock auf das Projekt haben.
-    </p>
+    <p class="subnote">Hier findest du alle offenen Rollen & Informationen zum Bewerbungsprozess.</p>
 
-    <div class="layout">
-        <!-- Rollen -->
-        <div class="role-box">
-            <h2>Rollen im Team</h2>
+    <h2>Offene Positionen</h2>
 
-            <span class="tag tag-lead">Leitung</span>
-            <h3>Projektleitung</h3>
-            <ul class="role-list">
-                <li>Gesamtverantwortung für Server & Konzept.</li>
-                <li>Trifft wichtige Entscheidungen für Projekte & Entwicklung.</li>
-            </ul>
-
-            <h3>Stv. Projektleitung</h3>
-            <ul class="role-list">
-                <li>Unterstützt die Projektleitung im Tagesgeschäft.</li>
-                <li>Schnittstelle zwischen Management, Technik und Staff.</li>
-            </ul>
-
-            <span class="tag tag-lead">Management</span>
-            <h3>Management</h3>
-            <ul class="role-list">
-                <li>Koordiniert die einzelnen Teambereiche.</li>
-                <li>Plant interne Abläufe, Besprechungen und Projekte.</li>
-            </ul>
-
-            <h3>Stv. Management</h3>
-            <ul class="role-list">
-                <li>Unterstützt Management bei Organisation & Planung.</li>
-                <li>Hilft beim Einlernen neuer Teammitglieder.</li>
-            </ul>
-
-            <span class="tag tag-tech">Analyse & Technik</span>
-            <h3>Head-Analyst</h3>
-            <ul class="role-list">
-                <li>Leitet das Analysten-Team.</li>
-                <li>Wertet Clips, Reports und Statistiken aus.</li>
-            </ul>
-
-            <h3>Analyst</h3>
-            <ul class="role-list">
-                <li>Analysiert Beweise bei Regelverstößen.</li>
-                <li>Unterstützt Support & Management mit Auswertungen.</li>
-            </ul>
-
-            <h3>Developer</h3>
-            <ul class="role-list">
-                <li>Arbeitet an Scripts, Systemen und Performance.</li>
-                <li>Setzt neue Features um und fixt Bugs.</li>
-            </ul>
-
-            <h3>Mapper</h3>
-            <ul class="role-list">
-                <li>Erstellt/überarbeitet MLOs und Mapping.</li>
-                <li>Sorgt für eine stimmige Crime-Atmosphäre in Prag.</li>
-            </ul>
-
-            <span class="tag tag-staff">Staff</span>
-            <h3>Administrator</h3>
-            <ul class="role-list">
-                <li>Bearbeitet größere Supportfälle und Beschwerden.</li>
-                <li>Setzt Bans, Warns und Sanktionen nach Regelwerk um.</li>
-            </ul>
-
-            <h3>Moderator</h3>
-            <ul class="role-list">
-                <li>Achtet auf Chat, Verhalten und Grundstimmung der Community.</li>
-                <li>Greift bei Streit, Trolling oder Regelbrüchen ein.</li>
-            </ul>
-
-            <h3>Supporter</h3>
-            <ul class="role-list">
-                <li>Erste Anlaufstelle für Spielerfragen und kleinere Konflikte.</li>
-                <li>Hilft neuen Spielern beim Einstieg.</li>
-            </ul>
-        </div>
-
-        <!-- Bewerbungsformular -->
-        <div class="role-box">
-            <h2>Bewirb dich beim Team</h2>
-            <p class="subnote">
-                Fülle das Formular ehrlich und ausführlich aus.  
-                Deine Angaben werden verschlüsselt an <strong>pragcrimelife@gmail.com</strong> geschickt.
-            </p>
-
-            <form class="application-form"
-                  action="https://formsubmit.co/pragcrimelife@gmail.com"
-                  method="POST">
-
-                <input type="hidden" name="_subject" value="Neue Teambewerbung – Prag Crimelife">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_template" value="table">
-
-                <div class="field-group">
-                    <label for="name">Name / Ingame-Name *</label>
-                    <input id="name" name="Name" required>
-                </div>
-
-                <div class="field-group">
-                    <label for="age">Alter *</label>
-                    <input id="age" name="Alter" required>
-                </div>
-
-                <div class="field-group">
-                    <label for="discord">Discord-Tag *</label>
-                    <input id="discord" name="Discord" placeholder="z.B. Name#1234" required>
-                </div>
-
-                <div class="field-group">
-                    <label for="role">Gewünschte Rolle *</label>
-                    <select id="role" name="Rolle" required>
-                        <option value="">Bitte auswählen…</option>
-                        <option>Supporter</option>
-                        <option>Moderator</option>
-                        <option>Administrator</option>
-                        <option>Analyst</option>
-                        <option>Head-Analyst</option>
-                        <option>Developer</option>
-                        <option>Mapper</option>
-                        <option>Management</option>
-                        <option>Stv. Management</option>
-                        <option>Projektleitung</option>
-                        <option>Stv. Projektleitung</option>
-                    </select>
-                </div>
-
-                <div class="field-group">
-                    <label for="experience">Erfahrung *</label>
-                    <textarea id="experience" name="Erfahrung"
-                              placeholder="Hast du schon im Team auf anderen Servern gearbeitet? Welche Projekte kennst du?"
-                              required></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label for="activity">Aktivität *</label>
-                    <textarea id="activity" name="Aktivität"
-                              placeholder="Wie viele Stunden pro Woche kannst du ungefähr investieren?"
-                              required></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label for="why">Warum genau du?</label>
-                    <textarea id="why" name="Warum_du"
-                              placeholder="Was macht dich als Teammitglied stark? Wie tickst du als Person?"></textarea>
-                </div>
-
-                <p class="hint">
-                    Mit dem Absenden stimmst du zu, dass wir deine Angaben zur Bearbeitung der Bewerbung nutzen.
-                </p>
-
-                <button class="btn-submit" type="submit">Bewerbung senden</button>
-            </form>
-        </div>
+    <div class="role-box">
+        <h3>Developer</h3>
+        <p>Lua, FiveM, Script-Anpassungen, Performance, Anti-Cheat-Basics, Bugfixing.</p>
     </div>
 
-    <footer>
-        <span>© Prag Crimelife</span>
-        <span>Kontakt: <a href="mailto:pragcrimelife@gmail.com">pragcrimelife@gmail.com</a></span>
-    </footer>
-</div>
+    <div class="role-box">
+        <h3>Mapper</h3>
+        <p>Erstellen und Optimieren von MLOs, Map-Objekten und Performance-optimierten Locations.</p>
+    </div>
 
+    <div class="role-box">
+        <h3>Management / STR-Management</h3>
+        <p>Strukturen halten, Entscheidungen planen, Qualität überwachen, interne Organisation.</p>
+    </div>
+
+    <div class="role-box">
+        <h3>Projektleitung / stellv. Projektleitung</h3>
+        <p>Serverleitung, Entscheidungen treffen, Community-Image, Strukturplanung.</p>
+    </div>
+
+    <div class="role-box">
+        <h3>Analysten / Head-Analyst</h3>
+        <p>Auswertung von Clips, faire Bewertung von Fights & Reports, Neutralität ist Pflicht.</p>
+    </div>
+
+    <div class="role-box">
+        <h3>Moderatoren / Admins</h3>
+        <p>Durchsetzen des Regelwerks, Tickets bearbeiten, Supports, Community-Betreuung.</p>
+    </div>
+
+    <div class="role-box">
+        <h3>Supporter</h3>
+        <p>Erste Anlaufstelle für Spieler, einfache Fälle klären, Weitergabe komplexer Fälle.</p>
+    </div>
+
+    <h2>Bewerbung</h2>
+
+    <div class="apply-box">
+        <p style="margin-bottom:10px;">
+            Kopiere den Text unten, fülle ihn aus und sende ihn per E-Mail an:<br>
+            <strong>pragcrimelife@gmail.com</strong>
+        </p>
+
+        <textarea id="bewerbungText">
+Bewerbung für: (Rolle eintragen)
+
+Name:
+Discord-Name + ID:
+Alter:
+Onlinezeiten:
+Erfahrung in FiveM:
+Erfahrung in der ausgewählten Rolle:
+Warum willst du bei Prag Crimelife ins Team?
+Was unterscheidet dich von anderen?
+Sonstiges:
+        </textarea>
+
+        <button class="copy-btn" onclick="copyText()">Text kopieren</button>
+    </div>
+
+</div>
+</main>
+
+<footer>
+    <div class="footer-inner">
+        <div>© Prag Crimelife – Projektleitung Prag Crimelife</div>
+        <div class="footer-links">
+            <a href="index.html">Startseite</a>
+            <a href="regelwerk.html">Regelwerk</a>
+            <a href="team.html">Team & Bewerbung</a>
+            <a href="impressum.html">Impressum</a>
+            <a href="https://discord.gg/Kac3JbPKCx" target="_blank">Discord</a>
+        </div>
+    </div>
+</footer>
+
+</div>
 </body>
 </html>
+
 
 
 
