@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <title>Prag Crimelife – Regelwerk</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; background: #05050a; color: #f5f5f5; }
+        a { color: inherit; text-decoration: none; }
+        .page-wrapper { min-height: 100vh; display: flex; flex-direction: column; }
+
+        /* gleicher Header wie index.html (leicht verkürzt) */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(5, 5, 10, 0.96);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .brand-logo {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: radial-gradient(circle at 30% 0%, #ff4444, #1a1a1a 55%, #000 100%);
+            overflow: hidden;
+            display:flex;align-items:center;justify-content:center;
+        }
+        .brand-logo img { width:100%;height:100%;object-fit:cover; }
+        .brand-text { display:flex;flex-direction:column;line-height:1.1; }
+        .brand-text span:first-child {
+            font-size:15px;letter-spacing:0.25em;text-transform:uppercase;color:#ff3b3b;
+        }
+        .brand-text span:last-child { font-size:18px;font-weight:800;color:#f5f5f5; }
+
+        nav ul {
+            list-style:none;
+            display:flex;
+            gap:22px;
+            align-items:center;
+            flex-wrap:wrap;
+        }
+        nav a {
+            position:relative;
+            font-size:16px;
+            color:#e5e5e5;
+            padding:4px 0;
+        }
+        nav a::after {
+            content:"";
+            position:absolute;
+            left:0;bottom:-3px;
+            width:0;height:2px;
+            background:linear-gradient(90deg,#ff3b3b,#b600ff);
+            border-radius:999px;
+            transition:width 0.2s ease;
+        }
+        nav a:hover { color:#fff; }
+        nav a:hover::after { width:100%; }
+
+        .nav-cta {
+            padding:8px 18px;
+            border-radius:999px;
+            border:1px solid #4d63ff;
+            background:radial-gradient(circle at 0 0,#4d63ff,#141428);
+            color:#fff;
+            font-size:15px;
+            font-weight:600;
+        }
+
+        /* Inhalt */
+        main {
+            flex:1;
+            background: radial-gradient(circle at top,#1a1a26 0%,#05050a 55%,#020206 100%);
+        }
+
+        .content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 32px 20px 40px 20px;
+        }
+
+        h1 {
+            font-size: 26px;
+            margin-bottom: 6px;
+        }
+        .subtitle {
+            font-size: 14px;
+            color: #c5c5dd;
+            margin-bottom: 22px;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin: 26px 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #ffffff;
+        }
+
+        h3 {
+            font-size: 15px;
+            margin: 16px 0 6px 0;
+            color: #ffeded;
+        }
+
+        ul {
+            margin-left: 18px;
+            font-size: 14px;
+            color: #e0e0f0;
+        }
+        li { margin-bottom: 4px; }
+
+        hr {
+            border:none;
+            border-top:1px solid rgba(255,255,255,0.12);
+            margin:26px 0;
+        }
+
+        footer {
+            border-top:1px solid rgba(255,255,255,0.06);
+            background:#050509;
+            color:#9090b0;
+            font-size:12px;
+        }
+        .footer-inner {
+            max-width:1100px;
+            margin:0 auto;
+            padding:10px 20px 12px 20px;
+            display:flex;
+            justify-content:space-between;
+            gap:12px;
+            flex-wrap:wrap;
+            align-items:center;
+        }
+        .footer-links {
+            display:flex;
+            gap:14px;
+            flex-wrap:wrap;
+        }
+        .footer-links a { color:#c0c0e0; }
+        .footer-links a:hover { color:#ffffff; }
+
+        @media(max-width:600px){
+            .content{padding-inline:14px;}
+            .nav-inner{padding-inline:14px;}
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <header>
+        <div class="nav-inner">
+            <a class="brand" href="index.html">
+                <div class="brand-logo">
+                    <img src="logo.png" alt="Prag Crimelife Logo">
+                </div>
+                <div class="brand-text">
+                    <span>PRAG</span>
+                    <span>CRIMELIFE</span>
+                </div>
+            </a>
+
+            <nav>
+                <ul>
+                    <li><a href="regelwerk.html">Regelwerk</a></li>
+                    <li><a href="team.html">Team &amp; Bewerbung</a></li>
+                    <li><a href="impressum.html">Impressum</a></li>
+                    <li><a class="nav-cta" href="https://discord.gg/Kac3JbPKCx" target="_blank" rel="noopener">Zum Discord</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="content">
+            <h1>Regelwerk Prag Crimelife</h1>
+            <p class="subtitle">
+                Dieses Regelwerk gilt für alle Spieler auf unserem FiveM-Server. Mit dem Betreten des Servers
+                akzeptierst du diese Regeln.
+            </p>
+
+            <!-- DU KANNST HIER DEIN GANZES ALTES REGELWERK EINSETZEN.
+                 Beispiel-Struktur wie vorher: -->
+
+            <h2>1. Discord-Regeln</h2>
+
+            <h3>1.1 Allgemeines Verhalten</h3>
+            <ul>
+                <li>Verhalte dich respektvoll, kein toxisches Verhalten.</li>
+                <li>Beleidigungen, Drohungen und Provozieren sind untersagt.</li>
+                <li>Spam oder Channel-Flooding ist verboten.</li>
+                <li>Teammitglieder werden nicht beleidigt oder angegriffen.</li>
+            </ul>
+
+            <h3>1.2 Werbung &amp; Identität</h3>
+            <ul>
+                <li>Eigen- und Fremdwerbung ist ohne Erlaubnis untersagt.</li>
+                <li>Unangebrachte Namen können geändert oder gebannt werden.</li>
+                <li>Das Ausgeben als Team- oder Fraktionsmitglied ist verboten.</li>
+            </ul>
+
+            <hr>
+
+            <h2>2. Ingame-Regeln</h2>
+
+            <h3>2.1 Schusscall</h3>
+            <ul>
+                <li>Vor dem Schießen muss ein klarer Schusscall gegeben werden.</li>
+                <li>Schießen ohne Schusscall wird als RDM gewertet.</li>
+                <li>Ein Call gilt für 2 Minuten, Reaktionszeit mind. 2 Sekunden.</li>
+            </ul>
+
+            <h3>2.2 Grounding / Dritt-Partei</h3>
+            <ul>
+                <li>Grounding ist verboten.</li>
+                <li>Wer keinen Bezug zur Situation hat, mischt sich nicht ein.</li>
+            </ul>
+
+            <h3>2.3 Safezones</h3>
+            <ul>
+                <li>Flüchten in Safezones oder dort campen ist verboten.</li>
+                <li>Aus Safezones heraus zu kämpfen ist ebenfalls untersagt.</li>
+            </ul>
+
+            <hr>
+
+            <h2>3. Support-Regeln</h2>
+            <ul>
+                <li>Regelverstöße werden mit Videobeweis gemeldet.</li>
+                <li>Supportgespräche dürfen nur mit Erlaubnis aufgenommen werden.</li>
+                <li>Der zuständige Supporter entscheidet über den Fall.</li>
+            </ul>
+
+            <hr>
+
+            <h2>4. Blacklisted Wörter</h2>
+            <ul>
+                <li>Schwer beleidigende, rassistische, sexistische oder homophobe Ausdrücke sind strikt verboten.</li>
+                <li>Umgehungen über andere Sprachen fallen ebenfalls darunter.</li>
+            </ul>
+
+            <hr>
+
+            <h2>5. Fraktionen &amp; Gangwar</h2>
+            <ul>
+                <li>Max. Fraktionsgröße, Erkennungsmerkmale und weitere Details werden im Discord bekanntgegeben.</li>
+                <li>Server-Regeln gelten vollumfänglich auch im Gangwar.</li>
+            </ul>
+
+            <p style="font-size:12px;color:#9797b8;margin-top:22px;">
+                Hinweis: Dieses Regelwerk kann jederzeit angepasst werden. Änderungen werden im Discord
+                bekanntgegeben. Unwissenheit schützt nicht vor einer Strafe.
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div>© Prag Crimelife – Projektleitung Prag Crimelife</div>
+            <div class="footer-links">
+                <a href="impressum.html">Impressum</a>
+                <a href="mailto:pragcrimelife@gmail.com">Kontakt</a>
+                <a href="team.html">Team &amp; Bewerbung</a>
+            </div>
+        </div>
+    </footer>
+
+</div>
+</body>
+</html>
