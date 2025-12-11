@@ -18,7 +18,10 @@
             color: #050505;
         }
 
-        /* ----- allgemeines Layout ----- */
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
         .page-wrapper {
             min-height: 100vh;
@@ -26,12 +29,7 @@
             flex-direction: column;
         }
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* ----- Header / Navigation ----- */
+        /* ---------- HEADER / NAV ---------- */
 
         header {
             position: sticky;
@@ -45,11 +43,12 @@
         .nav-inner {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 10px 18px;
+            padding: 12px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 12px;
+            gap: 14px;
+            flex-wrap: wrap;
         }
 
         .brand {
@@ -60,11 +59,10 @@
             transition: transform 0.25s ease, filter 0.25s ease;
         }
 
-        /* <<< HIER LOGO-DATEI ANPASSEN, falls nötig */
         .brand-logo {
-            width: 38px;
-            height: 38px;
-            border-radius: 10px;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
             background: radial-gradient(circle at 30% 0%, #ff4444, #1a1a1a 55%, #000 100%);
             display: flex;
             align-items: center;
@@ -72,12 +70,12 @@
             overflow: hidden;
         }
 
+        /* dein Logo – Datei muss logo.png heißen */
         .brand-logo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        /* >>> */
 
         .brand-text {
             display: flex;
@@ -86,15 +84,15 @@
         }
 
         .brand-text span:first-child {
-            font-size: 14px;
+            font-size: 15px;
             letter-spacing: 0.25em;
             text-transform: uppercase;
             color: #ff3b3b;
         }
 
         .brand-text span:last-child {
-            font-size: 16px;
-            font-weight: 700;
+            font-size: 18px;
+            font-weight: 800;
             color: #f5f5f5;
         }
 
@@ -106,14 +104,14 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 18px;
+            gap: 22px;
             align-items: center;
             flex-wrap: wrap;
         }
 
         nav a {
             position: relative;
-            font-size: 14px;
+            font-size: 16px;    /* GRÖSSER */
             color: #e5e5e5;
             padding: 4px 0;
             transition: color 0.2s ease;
@@ -140,12 +138,12 @@
         }
 
         .nav-cta {
-            padding: 6px 16px;
+            padding: 8px 18px;
             border-radius: 999px;
             border: 1px solid #4d63ff;
             background: radial-gradient(circle at 0 0, #4d63ff, #141428);
             color: #ffffff;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 600;
             box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04);
             transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
@@ -157,7 +155,7 @@
             background: radial-gradient(circle at 0 0, #5f74ff, #151532);
         }
 
-        /* ----- Hero-Bereich (Landing) ----- */
+        /* ---------- HERO ---------- */
 
         main {
             flex: 1;
@@ -167,7 +165,7 @@
         .hero {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 40px 18px 60px 18px;
+            padding: 40px 20px 60px 20px;
             display: grid;
             grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
             gap: 40px;
@@ -183,7 +181,7 @@
         }
 
         .hero-title {
-            font-size: 34px;
+            font-size: 36px;
             font-weight: 800;
             line-height: 1.1;
             color: #ffffff;
@@ -214,7 +212,7 @@
             border: none;
             background: linear-gradient(120deg, #ff3b3b, #ff8a3b);
             color: #ffffff;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 700;
             cursor: pointer;
             box-shadow: 0 14px 35px rgba(0, 0, 0, 0.55);
@@ -257,8 +255,6 @@
             color: #f5f5ff;
             font-weight: 600;
         }
-
-        /* Hero-Grafik rechts */
 
         .hero-visual {
             display: flex;
@@ -362,12 +358,12 @@
             border: 1px solid rgba(255, 255, 255, 0.19);
         }
 
-        /* ----- Sektion unter dem Hero (Kurzinfos) ----- */
+        /* ---------- Info-Karten ---------- */
 
         .info-section {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 0 18px 40px 18px;
+            padding: 0 20px 32px 20px;
         }
 
         .info-grid {
@@ -386,7 +382,7 @@
         }
 
         .info-card h3 {
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 600;
             margin-bottom: 8px;
             color: #ffffff;
@@ -397,7 +393,62 @@
             color: #bcbcde;
         }
 
-        /* ----- Footer ----- */
+        /* ---------- Team-Bereich unten ---------- */
+
+        .team-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px 50px 20px;
+        }
+
+        .team-section h2 {
+            font-size: 22px;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .team-section p {
+            font-size: 14px;
+            color: #c5c5e0;
+            margin-bottom: 16px;
+        }
+
+        .team-roles {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .team-role-card {
+            background: radial-gradient(circle at 0 0, #181826, #05050b);
+            border-radius: 16px;
+            padding: 14px 16px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .team-role-card h3 {
+            font-size: 14px;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+
+        .team-role-card ul {
+            padding-left: 18px;
+            font-size: 13px;
+            color: #c0c0dd;
+        }
+
+        .team-role-card li {
+            margin-bottom: 4px;
+        }
+
+        .team-note {
+            font-size: 12px;
+            color: #9090b8;
+            margin-top: 14px;
+        }
+
+        /* ---------- Footer ---------- */
 
         footer {
             border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -409,7 +460,7 @@
         .footer-inner {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 10px 18px 12px 18px;
+            padding: 10px 20px 12px 20px;
             display: flex;
             justify-content: space-between;
             gap: 12px;
@@ -432,9 +483,9 @@
             color: #ffffff;
         }
 
-        /* ----- Responsiv ----- */
+        /* ---------- Responsive ---------- */
 
-        @media (max-width: 800px) {
+        @media (max-width: 900px) {
             .hero {
                 grid-template-columns: 1fr;
                 padding-top: 26px;
@@ -443,33 +494,34 @@
             .hero-visual {
                 order: -1;
             }
+        }
 
-            .nav-inner {
-                flex-wrap: wrap;
-                justify-content: space-between;
-            }
-
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: flex-end;
+        @media (max-width: 700px) {
+            .team-roles {
+                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 600px) {
             .hero-title {
-                font-size: 26px;
+                font-size: 28px;
+            }
+
+            .nav-inner {
+                padding-inline: 14px;
             }
 
             .hero {
                 padding-inline: 14px;
             }
 
-            .info-grid {
-                grid-template-columns: 1fr;
+            .info-section,
+            .team-section {
+                padding-inline: 14px;
             }
 
-            .nav-inner {
-                padding-inline: 12px;
+            .info-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -482,9 +534,7 @@
         <div class="nav-inner">
             <a class="brand" href="index.html">
                 <div class="brand-logo">
-                    <!-- <<< HIER LOGO-DATEI EINSETZEN -->
-                    <!-- Wenn dein Logo z.B. logo.png heißt: -->
-                    <img src="logo.png" alt="Prag Crimelife Logo" />
+                    <img src="logo.png" alt="Prag Crimelife Logo">
                 </div>
                 <div class="brand-text">
                     <span>PRAG</span>
@@ -503,7 +553,7 @@
         </div>
     </header>
 
-    <!-- MAIN / HERO -->
+    <!-- HERO -->
     <main>
         <section class="hero">
             <div>
@@ -528,8 +578,8 @@
                 </div>
 
                 <p class="hero-meta">
-                    <span>Wir suchen Teammitglieder:</span> Support, Moderation, Admins, Management,
-                    Developer &amp; Analysten.
+                    <span>Wir suchen aktuell aktiv Teammitglieder:</span> Support, Moderation, Admins,
+                    Management, Developer &amp; Analysten.
                 </p>
             </div>
 
@@ -550,8 +600,8 @@
                             <div class="hero-card-stat-value">Crimelife</div>
                         </div>
                         <div class="hero-card-stat">
-                            <div class="hero-card-stat-label">Aim</div>
-                            <div class="hero-card-stat-value">Fokus</div>
+                            <div class="hero-card-stat-label">Fokus</div>
+                            <div class="hero-card-stat-value">Aim</div>
                         </div>
                         <div class="hero-card-stat">
                             <div class="hero-card-stat-label">Status</div>
@@ -560,10 +610,10 @@
                     </div>
 
                     <div class="hero-card-bottom">
-                        <div>Army-Base Fights &bull; Sauberes Regelwerk</div>
+                        <div>Army-Base Fights &bull; klares Regelwerk</div>
                         <div class="hero-card-badges">
                             <span class="badge">No Pay2Win</span>
-                            <span class="badge">Aktiv gesucht: Team</span>
+                            <span class="badge">Team gesucht</span>
                         </div>
                     </div>
                 </div>
@@ -577,24 +627,84 @@
                     <h3>Fokus auf Fights</h3>
                     <p>
                         Klare Calls, faire Regeln und eine Map, die auf Army-Base / Aim-Fights
-                        ausgelegt ist. Kein unnötiger Müll, sondern sauberes Gameplay.
+                        ausgelegt ist. Kein unnötiger Müll – sauberes, schnelles Gameplay.
                     </p>
                 </div>
                 <div class="info-card">
-                    <h3>Stabiles Team gesucht</h3>
+                    <h3>Strukturiertes Team</h3>
                     <p>
-                        Wir bauen ein langfristiges Team auf: Supporter, Moderatoren, Admins,
-                        Management, Devs &amp; Analysten. Bewirb dich direkt über die Website.
+                        Wir arbeiten mit klaren Rollen und Zuständigkeiten, damit Supportfälle
+                        schnell und ohne Chaos geklärt werden können.
                     </p>
                 </div>
                 <div class="info-card">
                     <h3>Transparente Regeln</h3>
                     <p>
-                        Das komplette Regelwerk findest du auf einer eigenen Seite – übersichtlich,
-                        klar und ohne Romane. Verstöße werden fair, aber konsequent behandelt.
+                        Das komplette Regelwerk liegt auf einer eigenen Seite – übersichtlich,
+                        klar formuliert und jederzeit einsehbar.
                     </p>
                 </div>
             </div>
+        </section>
+
+        <!-- Team-Beschreibung -->
+        <section class="team-section">
+            <h2>Was wir im Team suchen</h2>
+            <p>
+                Prag Crimelife ist noch im Aufbau – wir suchen Leute, die wirklich Bock haben,
+                langfristig mit uns an einem stabilen Projekt zu arbeiten. Erfahrung ist nice,
+                aber wichtiger ist uns, dass man zuverlässig ist, vernünftig kommuniziert und
+                keinen Kindergarten veranstaltet.
+            </p>
+
+            <div class="team-roles">
+                <div class="team-role-card">
+                    <h3>Supporter / Moderatoren</h3>
+                    <ul>
+                        <li>Bearbeiten von Tickets &amp; Ingame-Supportfällen</li>
+                        <li>Dokumentation von Regelverstößen &amp; Beweisen</li>
+                        <li>Neutral bleiben, auch wenn Freunde beteiligt sind</li>
+                        <li>Mindestens grundlegende Kenntnis des Regelwerks</li>
+                    </ul>
+                </div>
+
+                <div class="team-role-card">
+                    <h3>Admins &amp; Management</h3>
+                    <ul>
+                        <li>Entscheidung bei komplizierten oder strittigen Fällen</li>
+                        <li>Koordination vom Team &amp; internen Abläufen</li>
+                        <li>Mitwirken an Konzept, Balancing &amp; Server-Entwicklung</li>
+                        <li>Vorerfahrung in ähnlichen Projekten ist ein Plus</li>
+                    </ul>
+                </div>
+
+                <div class="team-role-card">
+                    <h3>Projektleitung &amp; Strategisches Management</h3>
+                    <ul>
+                        <li>Langfristige Planung des Projekts Prag Crimelife</li>
+                        <li>Strukturierung der Fraktionen &amp; allgemeinen Richtung</li>
+                        <li>Absprachen mit Developer-Team &amp; Marketing</li>
+                        <li>Nur für Leute, die ernsthaft Verantwortung übernehmen wollen</li>
+                    </ul>
+                </div>
+
+                <div class="team-role-card">
+                    <h3>Developer, Mapper &amp; Analysten</h3>
+                    <ul>
+                        <li>FiveM-Scripting, Bugfixing, QoL-Features (Developer)</li>
+                        <li>Optimierte Mappings für Army-Base / Crime-Zonen (Mapper)</li>
+                        <li>Auswertung von Logs, Reports &amp; Balancing-Daten (Analysten)</li>
+                        <li>Sauberer, performanter Code / Mappings sind Pflicht</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="team-note">
+                Wenn du dich wiedererkennst: Bewirb dich über die Seite
+                <strong>&ldquo;Team &amp; Bewerbung&rdquo;</strong> – dort steht genau,
+                welche Infos wir von dir brauchen. Je genauer du schreibst, desto schneller
+                können wir dich einordnen.
+            </p>
         </section>
     </main>
 
@@ -613,6 +723,8 @@
 </div>
 </body>
 </html>
+
+
 
 
 
