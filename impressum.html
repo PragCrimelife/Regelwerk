@@ -24,7 +24,6 @@
             z-index: -1;
         }
 
-        /* Navigation */
         header {
             position: sticky;
             top: 0;
@@ -42,6 +41,41 @@
             align-items: center;
             justify-content: space-between;
             gap: 16px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 800;
+            font-size: 26px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: logoPulse 3s ease-in-out infinite;
+            transition: 0.25s ease;
+        }
+
+        .brand .red { color: #ff2b2b; }
+
+        .brand:hover {
+            letter-spacing: 3px;
+            transform: scale(1.03);
+            filter: drop-shadow(0 0 10px #ff2b2b);
+        }
+
+        .logo-img {
+            height: 52px;
+            width: auto;
+            filter: drop-shadow(0 0 6px #000);
+            animation: logoGlow 2.4s ease-in-out infinite;
+            transition: 0.25s ease;
+        }
+
+        .brand:hover .logo-img {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 22px #ff2b2b);
         }
 
         nav ul {
@@ -79,28 +113,6 @@
             background: #556bff55;
         }
 
-        /* Logo */
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            text-decoration: none;
-            color: #fff;
-            font-weight: 800;
-            font-size: 26px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .brand .red { color: #ff2b2b; }
-
-        .logo-img {
-            height: 52px;
-            width: auto;
-            filter: drop-shadow(0 0 6px #000);
-        }
-
-        /* Inhaltsbereich */
         .page-wrapper {
             max-width: 900px;
             margin: 80px auto 40px auto;
@@ -125,9 +137,7 @@
             padding-left: 10px;
         }
 
-        p, ul {
-            margin-bottom: 12px;
-        }
+        p, ul { margin-bottom: 12px; }
 
         ul { margin-left: 20px; }
 
@@ -156,26 +166,60 @@
             margin: 10px 0;
         }
 
-        details {
-            margin-top: 20px;
+        details { margin-top: 20px; }
+
+        @keyframes logoGlow {
+            0% {
+                filter: drop-shadow(0 0 4px #000) brightness(1);
+            }
+            50% {
+                filter: drop-shadow(0 0 18px #ff2b2b) brightness(1.2);
+            }
+            100% {
+                filter: drop-shadow(0 0 4px #000) brightness(1);
+            }
+        }
+
+        @keyframes logoPulse {
+            0% {
+                letter-spacing: 2px;
+                transform: translateY(0);
+            }
+            50% {
+                letter-spacing: 3px;
+                transform: translateY(-1px);
+            }
+            100% {
+                letter-spacing: 2px;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .nav-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul { justify-content: flex-start; }
         }
     </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
     <div class="nav-inner">
-
         <a href="index.html" class="brand">
-            <img src="logo.png" alt="Logo" class="logo-img">
+            <img src="logo.png" alt="Prag Crimelife Logo" class="logo-img">
             <span><span class="red">PRAG</span> CRIMELIFE</span>
         </a>
-
         <nav>
             <ul>
-                <li><a href="index.html">Regelwerk</a></li>
-                <li><a href="team.html">Team & Bewerbung</a></li>
+                <li><a href="index.html#discord-regeln">Discord</a></li>
+                <li><a href="index.html#ingame-regeln">Ingame</a></li>
+                <li><a href="index.html#support-regeln">Support</a></li>
+                <li><a href="index.html#gangwar-regeln">Gangwar</a></li>
+                <li><a href="team.html">Team &amp; Bewerbung</a></li>
                 <li><a href="impressum.html">Impressum</a></li>
                 <li><a class="btn-discord" href="https://discord.gg/Kac3JbPKCx" target="_blank">Zum Discord</a></li>
             </ul>
@@ -183,9 +227,7 @@
     </div>
 </header>
 
-<!-- INHALT -->
 <div class="page-wrapper">
-
     <h1>Impressum</h1>
 
     <h2>Verantwortlich für den Inhalt</h2>
@@ -196,21 +238,19 @@
 
     <h2>Kontaktaufnahme</h2>
     <ul>
-        <li>Bewerbungen über: <a href="team.html">Team & Bewerbung</a></li>
-        <li>Fragen & Business: <a href="mailto:pragcrimelife@gmail.com">pragcrimelife@gmail.com</a></li>
-        <li>Support & Meldungen über unseren <a href="https://discord.gg/Kac3JbPKCx" target="_blank">Discord</a></li>
+        <li>Bewerbungen: über <a href="team.html">Team &amp; Bewerbung</a></li>
+        <li>Allgemeine Anfragen: <a href="mailto:pragcrimelife@gmail.com">pragcrimelife@gmail.com</a></li>
+        <li>Support & Meldungen: über unseren <a href="https://discord.gg/Kac3JbPKCx" target="_blank">Discord</a></li>
     </ul>
 
     <h2>Projektinfo</h2>
     <p>
         Prag Crimelife ist ein nichtkommerzielles Roleplay-/FiveM-Projekt.  
-        Alle Marken gehören ihren jeweiligen Eigentümern.
+        Alle Marken- und Produktnamen gehören ihren jeweiligen Eigentümern.
     </p>
 
     <hr style="margin: 30px 0; border-color: #444;">
 
-
-    <!-- RECHTSBLOCK – AUFKLAPPBAR -->
     <details style="background: rgba(0,0,0,0.55); padding: 14px 16px; border-radius: 10px; border: 1px solid #333;">
         <summary>⚖️ Rechtliche Hinweise anzeigen</summary>
 
@@ -218,31 +258,31 @@
 
             <h2 style="font-size: 18px;">Datenschutz / Cookies</h2>
             <p>
-                Diese Website verwendet <strong>keine Cookies</strong> und keinerlei Tracking.
-                GitHub Pages speichert technisch notwendige Log-Daten (z. B. IP-Adresse, Browsertyp,
-                Zeitstempel), die ausschließlich zur Serversicherheit dienen.  
+                Diese Website verwendet <strong>keine Cookies</strong> und keine Tracking-Technologien.
+                GitHub Pages speichert technisch notwendige Logdaten (z. B. IP-Adresse, Browsertyp, Zeitstempel),
+                die ausschließlich der Sicherheit und Bereitstellung des Dienstes dienen.  
                 Wir werten diese Daten nicht aus.
             </p>
 
             <h2 style="font-size: 18px;">Haftung für Inhalte</h2>
             <p>
-                Die Inhalte dieser Seite wurden sorgfältig erstellt und dienen ausschließlich
-                der Bereitstellung eines Gaming-Projektes.  
-                Für Vollständigkeit oder Aktualität wird keine Haftung übernommen.
+                Alle Inhalte dieser Seite wurden mit Sorgfalt erstellt und dienen ausschließlich
+                Informationszwecken im Rahmen eines Gaming-Projekts.  
+                Für Vollständigkeit, Richtigkeit oder Aktualität übernehmen wir keine Haftung.
             </p>
 
             <h2 style="font-size: 18px;">Haftung für externe Links</h2>
             <p>
-                Externe Links führen zu fremden Seiten, auf deren Inhalt wir keinen Einfluss haben.
+                Diese Website kann Links zu externen Seiten enthalten.  
+                Für deren Inhalte sind ausschließlich deren Betreiber verantwortlich.
                 Zum Zeitpunkt der Verlinkung waren keine rechtswidrigen Inhalte erkennbar.
             </p>
 
             <h2 style="font-size: 18px;">Urheberrecht</h2>
             <p>
-                Grafiken, Texte und Logos auf dieser Seite sind urheberrechtlich geschützt.
-                Eine Nutzung ist nur mit ausdrücklicher Erlaubnis erlaubt.
+                Grafiken, Logos und Texte auf dieser Seite sind urheberrechtlich geschützt.  
+                Eine Nutzung oder Weitergabe ohne ausdrückliche Erlaubnis ist nicht gestattet.
             </p>
-
         </div>
     </details>
 
@@ -250,11 +290,12 @@
         <span>© Prag Crimelife</span>
         <span>Kontakt: <a href="mailto:pragcrimelife@gmail.com">pragcrimelife@gmail.com</a></span>
     </footer>
-
 </div>
 
 </body>
 </html>
+
+
 
 
 
